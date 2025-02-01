@@ -7,7 +7,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: { params: { id: string } }) {
-  const post = await getContentData(params.id, "post")
+  const { id } = await params;
+  const post = await getContentData(id, "post")
 
   return (
     <div className="container mx-auto px-4 py-8">
