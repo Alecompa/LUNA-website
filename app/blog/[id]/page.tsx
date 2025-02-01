@@ -6,8 +6,14 @@ export async function generateStaticParams() {
   return ids.map((id) => ({ id }))
 }
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
-  const { id } = await params;
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function BlogPost({ params }: PageProps) {
+  const { id } = params;
   const post = await getContentData(id, "post")
 
   return (
