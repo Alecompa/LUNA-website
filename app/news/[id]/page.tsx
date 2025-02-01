@@ -6,7 +6,8 @@ export async function generateStaticParams() {
   return ids.map((id) => ({ id }))
 }
 
-export default async function NewsArticle({ params }: { params: { id: string } }) {
+export default async function NewsArticle(props: { params: { id: string } }) {
+  const { params } = props;
   const article = await getContentData(params.id, "article")
 
   return (
