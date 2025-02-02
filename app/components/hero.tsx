@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       className="relative h-[80vh] bg-cover bg-center bg-fixed flex items-center"
-      style={{ backgroundImage: "url('/placeholder.svg?height=1080&width=1920')" }}
+      style={{ backgroundImage: "url('/Luna-5258.jpg')" }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -17,7 +17,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Advancing Science Through Collaboration
+          Understanding the stars from deep underground
         </motion.h1>
         <motion.p
           className="text-xl mb-8 text-white"
@@ -25,7 +25,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Join our global network of researchers and contribute to groundbreaking experiments
+          The Laboratory for Nuclear Astrophysics study charged-particle induced reactions of astrophysical interest
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Button variant="secondary" size="lg">
-            Get Started
+            Know more...
           </Button>
         </motion.div>
       </div>

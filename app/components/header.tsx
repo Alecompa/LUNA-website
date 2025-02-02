@@ -14,9 +14,9 @@ export default function Header() {
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-primary">
-            SciCollab
-          </Link>
+            <Link href="/">
+              <img src="/logo_v5h.png" alt="LUNA" className="h-10 " />
+            </Link>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
               {isMenuOpen ? <X /> : <Menu />}
