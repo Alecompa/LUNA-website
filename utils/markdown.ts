@@ -1,12 +1,16 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import { remark } from "remark"
-import html from "remark-html"
 import remarkMath from "remark-math"
 import remarkGfm from "remark-gfm"
+import remarkRehype from "remark-rehype"
 import rehypeKatex from "rehype-katex"
+import remarkParse from "remark-parse"
+import rehypeDocument from "rehype-document"
+import rehypeFormat from "rehype-format"
 import rehypeStringify from "rehype-stringify"
+import rehypeSlug from "rehype-slug"
+import rehypeParse from "rehype-parse"
 import { unified } from "unified"
 
 const postsDirectory = path.join(process.cwd(), "content/posts")
@@ -31,9 +35,30 @@ export async function getContentData(id: string, type: "post" | "article"): Prom
 
   const { data, content } = matter(fileContents)
 
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkMath)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeKatex)
+    .use(rehypeSlug)
+    .use(rehypeDocument, { title: data.title })
+    .use(rehypeFormat)
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(content)
 
-  const processedContent = await remark().use(html).process(content)
   const contentHtml = processedContent.toString()
+
+  // Process the title to render math
+  const processedTitle = await unified()
+    .use(remarkParse)
+    .use(remarkMath)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeKatex)
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(data.title)
+
+  const titleHtml = processedTitle.toString()
 
   // Calculate reading time (rough estimate)
   const wordsPerMinute = 200
@@ -42,7 +67,7 @@ export async function getContentData(id: string, type: "post" | "article"): Prom
 
   return {
     id,
-    title: data.title,
+    title: titleHtml,
     date: data.date,
     content: contentHtml,
     excerpt: data.excerpt || content.slice(0, 150) + "...",
@@ -70,4 +95,3 @@ export async function getAllContentData(type: "post" | "article"): Promise<Conte
   )
   return allContentData.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
-

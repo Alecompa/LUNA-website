@@ -16,7 +16,7 @@ export default function ContentDisplay({ item }: { item: ContentItem }) {
 
       {/* Article Header */}
       <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">{item.title}</h1>
+        <h1 className="text-4xl font-bold mb-4" dangerouslySetInnerHTML={{ __html: item.title }} />
         <div className="flex items-center gap-4 text-muted-foreground mb-4">
           {item.author && (
             <div className="flex items-center gap-2">
@@ -53,3 +53,4 @@ export default function ContentDisplay({ item }: { item: ContentItem }) {
     </article>
   )
 }
+

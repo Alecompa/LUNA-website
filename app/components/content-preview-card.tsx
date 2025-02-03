@@ -37,7 +37,7 @@ export default function ContentPreviewCard({
                     </div>
                 )}
                 <Link href={href} className="hover:underline">
-                    <h3 className="text-xl font-bold">{item.title}</h3>
+                    <h3 className="text-xl font-bold" dangerouslySetInnerHTML={{ __html: item.title }} />
                 </Link>
             </CardHeader>
             <CardContent>
