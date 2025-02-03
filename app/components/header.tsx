@@ -16,7 +16,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
             <Link href="/">
-              <Image src="/logo_v5h.png" alt="SciCollab" width={100} height={20} />
+              <Image src="/logo_v5h.png" alt="LUNA" width={100} height={20} />
             </Link>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
@@ -50,9 +50,6 @@ export default function Header() {
               <Link href="/contact" className="block py-2 md:py-0 text-gray-600 hover:text-primary">
                 Contact
               </Link>
-            </li>
-            <li className="mt-4 md:mt-0">
-              <Button variant="outline">Login</Button>
             </li>
           </ul>
         </div>
