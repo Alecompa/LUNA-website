@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,7 +16,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
             <Link href="/">
-              <img src="/logo_v5h.png" alt="LUNA" className="h-10 " />
+              <Image src="/logo_v5h.png" alt="SciCollab" width={100} height={20} />
             </Link>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
