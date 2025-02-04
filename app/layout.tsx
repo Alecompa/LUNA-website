@@ -8,8 +8,8 @@ import type React from "react" // Added import for React
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Scientific Experimental Collaboration",
-  description: "A platform for collaborative scientific experiments",
+  title: "The LUNA Collaboration",
+  description: "Exploring the stars from deep underground",
 }
 
 export default function RootLayout({
