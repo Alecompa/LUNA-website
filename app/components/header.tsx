@@ -30,27 +30,27 @@ export default function Header() {
             className={`md:flex md:items-center md:space-x-4 ${isMenuOpen ? "block bg-white dark:bg-black/90" : "hidden"} absolute md:relative top-16 left-0 right-0 md:top-0 p-4 md:p-0 shadow-md md:shadow-none z-30`}
           >
             <li>
-              <Link href="/" className="block py-2 md:py-0 primary hover:text-primary">
+              <Link href="/" className="block py-2 md:py-0 primary hover:text-red-800">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="block py-2 md:py-0 primary hover:text-primary">
+              <Link href="/about" className="block py-2 md:py-0 primary hover:text-red-800">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/publications" className="block py-2 md:py-0 primary hover:text-primary">
+              <Link href="/publications" className="block py-2 md:py-0 primary hover:text-red-800">
                 Publications
               </Link>
             </li>
             <li>
-              <Link href="/news" className="block py-2 md:py-0 primary hover:text-primary">
+              <Link href="/news" className="block py-2 md:py-0 primary hover:text-red-800">
                 News
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="block py-2 md:py-0 primary hover:text-primary">
+              <Link href="/contact" className="block py-2 md:py-0 primary hover:text-red-800">
                 Contact
               </Link>
             </li>
