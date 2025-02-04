@@ -19,7 +19,7 @@ export default async function Home() {
       <Hero />
 
       {/* News Preview Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 muted">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold">Latest News</h2>
@@ -38,7 +38,7 @@ export default async function Home() {
       <Experiments />
 
       {/* Science Posts Preview Section */}
-      <section className="py-16">
+      <section className="py-16 background">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold">Latest Blog Posts</h2>
