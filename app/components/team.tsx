@@ -1,28 +1,91 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+"use client"
 
-const teamMembers = [
-  { id: 1, name: "Dr. Jane Smith", role: "Lead Researcher", avatar: "/placeholder.svg?height=100&width=100" },
-  { id: 2, name: "Prof. John Doe", role: "Senior Scientist", avatar: "/placeholder.svg?height=100&width=100" },
-  { id: 3, name: "Dr. Emily Brown", role: "Data Analyst", avatar: "/placeholder.svg?height=100&width=100" },
-]
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export default function Team() {
+  const images = ['images/LUNA_collab-2.jpg']
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [nextImageIndex, setNextImageIndex] = useState(1)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  // Preload images and track loading status
+  useEffect(() => {
+    let loadedCount = 0
+    const totalImages = images.length
+
+    images.forEach(imageUrl => {
+      const img = new Image()
+      img.onload = () => {
+        loadedCount++
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true)
+        }
+      }
+      img.src = imageUrl
+    })
+  }, [])
+
+  useEffect(() => {
+    if (!imagesLoaded) return
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+      setNextImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [imagesLoaded])
+
+  if (!imagesLoaded) {
+    return (
+      <section className="relative h-[80vh] bg-gray-900">
+        {/* Loading state content */}
+      </section>
+    )
+  }
+
   return (
-    <section id="team" className="py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member) => (
-            <div key={member.id} className="text-center">
-              <Avatar className="w-32 h-32 mx-auto mb-4">
-                <AvatarImage src={member.avatar} alt={member.name} />
-                <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-              </Avatar>
-              <h3 className="text-xl font-semibold">{member.name}</h3>
-              <p className="text-gray-600">{member.role}</p>
-            </div>
-          ))}
-        </div>
+    <section className="relative h-[80vh] overflow-hidden">
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url('${image}')`,
+            opacity: index === currentImageIndex ? 1 : 0,
+            zIndex: index === currentImageIndex ? 1 : 0,
+          }}
+        />
+      ))}
+      <div className="absolute inset-0 bg-black opacity-50 z-[2]"></div>
+      <div className="container mx-auto px-4 text-center relative z-10 h-full flex flex-col items-center justify-center">
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold mb-4 text-white"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          More than 50 international scientists
+        </motion.h1>
+        <motion.p
+          className="text-xl mb-8 text-white"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          From 4 countries and 10 institutions
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Button variant="secondary" size="lg" onClick={() => window.location.href = '/team'}>
+            The LUNA collaboration
+          </Button>
+        </motion.div>
       </div>
     </section>
   )

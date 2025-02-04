@@ -7,38 +7,27 @@ import { notFound } from "next/navigation"
 const experiments = [
   {
     id: 1,
-    title: "Quantum Entanglement Study: $E = \\hbar \\omega$",
+    title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF",
     description:
-      "Investigating long-distance quantum entanglement effects using the equation $\\rho = \\sum_i p_i |\\psi_i\\rangle\\langle\\psi_i|$",
-    fullContent: `
-      # Quantum Entanglement Study
-
-      Our research focuses on understanding quantum entanglement at macroscopic scales. The fundamental equation governing our study is:
-
-      $E = \\hbar \\omega$
-
-      ## Research Goals
-
-      We aim to investigate how quantum entanglement manifests in systems of increasing size and complexity. The density matrix formalism:
-
-      $\\rho = \\sum_i p_i |\\psi_i\\rangle\\langle\\psi_i|$
-
-      helps us track the quantum state of our system throughout the experiments.
-    `,
+      "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility",
+    fullContent: "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility",
+    image: "/images/experiments/14N_pg_MV.jpeg",
   },
   {
     id: 2,
-    title: "CRISPR Gene Editing: $\\text{DNA} + \\text{Cas9} \\rightarrow \\text{Edited DNA}$",
+    title: "SHADES at the Bellotti IBF",
     description:
-      "Exploring novel applications of CRISPR in disease treatment, focusing on the guide RNA sequence ",
-    fullContent: "# CRISPR Gene Editing Researc \n prova",
+      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant.",
+    fullContent: "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant.",
+    image: "/images/experiments/shades.png",
   },
   {
     id: 3,
-    title: "Dark Matter Detection: $F = G \\frac{m_1 m_2}{r^2}$",
+    title: "$^{12}$C+$^{12}$C at the Bellotti IBF",
     description:
-      "Developing new methods for detecting dark matter particles using the modified gravity equation $F = \\frac{G m_1 m_2}{r^2} + \\alpha e^{-r/\\lambda}$",
-    fullContent: "# Dark Matter Detection Research",
+      "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
+    fullContent: "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
+    image: "/images/experiments/12C_12C.jpg",
   },
 ]
 
@@ -69,7 +58,7 @@ export default async function ExperimentPage({
       <article className="prose prose-lg dark:prose-invert mx-auto max-w-4xl">
         <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
           <Image
-            src="/Luna-5258.jpg"
+            src={experiment.image}
             alt={experiment.title}
             fill
             className="object-cover"

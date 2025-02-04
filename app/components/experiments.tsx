@@ -6,21 +6,24 @@ import Link from "next/link"
 const experiments = [
   {
     id: 1,
-    title: "Quantum Entanglement Study: $E = \\hbar \\omega$",
+    title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF",
     description:
-      "Investigating long-distance quantum entanglement effects using the equation $\\rho = \\sum_i p_i |\\psi_i\\rangle\\langle\\psi_i|$",
+      "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility",
+    image: "/images/experiments/14N_pg_MV.jpeg",
   },
   {
     id: 2,
-    title: "CRISPR Gene Editing: $\\text{DNA} + \\text{Cas9} \\rightarrow \\text{Edited DNA}$",
+    title: "SHADES at the Bellotti IBF",
     description:
-      "Exploring novel applications of CRISPR in disease treatment, focusing on the guide RNA sequence $5'-\\text{GTTCG}-3'$",
+      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant",
+    image: "/images/experiments/shades.png",
   },
   {
     id: 3,
-    title: "Dark Matter Detection: $F = G \\frac{m_1 m_2}{r^2}$",
+    title: "$^{12}$C+$^{12}$C at the Bellotti IBF",
     description:
-      "Developing new methods for detecting dark matter particles using the modified gravity equation $F = \\frac{G m_1 m_2}{r^2} + \\alpha e^{-r/\\lambda}$",
+      "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
+    image: "/images/experiments/12C_12C.jpg",
   },
 ]
 
@@ -43,7 +46,7 @@ export default async function Experiments() {
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/Luna-5258.jpg"
+                    src={experiment.image}
                     alt="SciCollab Team"
                     fill
                     className="object-cover transition-transform group-hover:scale-105"
