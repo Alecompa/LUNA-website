@@ -30,7 +30,7 @@ const experiments = [
     id: 2,
     title: "CRISPR Gene Editing: $\\text{DNA} + \\text{Cas9} \\rightarrow \\text{Edited DNA}$",
     description:
-      "Exploring novel applications of CRISPR in disease treatment, focusing on the guide RNA sequence $5'-\\text{GTTCG}-3'$",
+      "Exploring novel applications of CRISPR in disease treatment, focusing on the guide RNA sequence ",
     fullContent: "# CRISPR Gene Editing Researc \n prova",
   },
   {
