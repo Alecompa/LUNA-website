@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { processLatex } from "@/utils/processLatex"
 import Image from "next/image"
+import Link from "next/link"
 
 const experiments = [
   {
@@ -38,26 +39,29 @@ export default async function Experiments() {
         <h2 className="text-3xl font-bold mb-8 text-center">Ongoing Experiments</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {processedExperiments.map((experiment) => (
-            <Card key={experiment.id}>
-              <div className="relative h-48 w-full">
-                <Image
-                  src="/Luna-5258.jpg?height=200&width=400"
-                  alt="SciCollab Team"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>
-                  <span dangerouslySetInnerHTML={{ __html: experiment.title }} />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  <span dangerouslySetInnerHTML={{ __html: experiment.description }} />
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <Link href={`/experiments/${experiment.id}`} key={experiment.id}>
+              <Card className="h-full hover:shadow-lg transition-shadow">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/Luna-5258.jpg"
+                    alt="SciCollab Team"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>
+                    <span dangerouslySetInnerHTML={{ __html: experiment.title }} />
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    <span dangerouslySetInnerHTML={{ __html: experiment.description }} />
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
           ))}
         </div>
       </div>

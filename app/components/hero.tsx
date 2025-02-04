@@ -2,12 +2,26 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export default function Hero() {
+  const images = ['/Luna-5258.jpg', '/Luna-5256.jpg'] // Replace with your actual image paths
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 5000) // Change image every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section
-      className="relative h-[80vh] bg-cover bg-center bg-fixed flex items-center"
-      style={{ backgroundImage: "url('/Luna-5258.jpg')" }}
+      className="relative h-[80vh] bg-cover bg-center bg-scroll md:bg-fixed flex items-center transition-all duration-1000 ease-in-out"
+      style={{ 
+        backgroundImage: `url('${images[currentImageIndex]}')`
+      }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container mx-auto px-4 text-center relative z-10">
