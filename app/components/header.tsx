@@ -10,7 +10,6 @@ import { useTheme } from "next-themes"
 
 export default function Header() {
 
-  const { setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
