@@ -51,10 +51,9 @@ export async function generateStaticParams() {
 export default async function ExperimentPage({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: { id: string }
 }) {
-  // Await params.id before using it
-  const id = await params.id
+  const id = params.id
   const experiment = experiments.find((exp) => exp.id === parseInt(id))
 
   if (!experiment) {
