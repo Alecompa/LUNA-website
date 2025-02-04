@@ -1,4 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { processLatex } from "@/utils/processLatex"
 import Image from "next/image"
 import Link from "next/link"
@@ -25,6 +32,13 @@ const experiments = [
       "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
     image: "/images/experiments/12C_12C.jpg",
   },
+  {
+    id: 4,
+    title: "$^{12}$C+$^{12}$C at the Bellotti IBF",
+    description:
+      "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
+    image: "/images/experiments/12C_12C.jpg",
+  },
 ]
 
 export default async function Experiments() {
@@ -40,32 +54,41 @@ export default async function Experiments() {
     <section id="experiments" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Ongoing Experiments</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processedExperiments.map((experiment) => (
-            <Link href={`/experiments/${experiment.id}`} key={experiment.id}>
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={experiment.image}
-                    alt="SciCollab Team"
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>
-                    <span dangerouslySetInnerHTML={{ __html: experiment.title }} />
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    <span dangerouslySetInnerHTML={{ __html: experiment.description }} />
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> */}
+        <Carousel>
+          <CarouselContent>
+            {processedExperiments.map((experiment) => (
+              <CarouselItem key={experiment.id} className="md:basis-1/2 lg:basis-1/3">
+                <Link href={`/experiments/${experiment.id}`} key={experiment.id}>
+                  <Card className="h-full hover:shadow-lg transition-shadow">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={experiment.image}
+                        alt="LUNA experiment"
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle>
+                        <span dangerouslySetInnerHTML={{ __html: experiment.title }} />
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        <span dangerouslySetInnerHTML={{ __html: experiment.description }} />
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+
+        {/* </div> */}
       </div>
     </section>
   )
