@@ -62,7 +62,6 @@ export default async function Experiments() {
               </Card>
             </Link>
           ))}
-          ))}
         </div>
       </div>
     </section>
