@@ -7,7 +7,6 @@ import { useState, useEffect } from "react"
 export default function Hero() {
   const images = ['images/hero/accelerator.jpg', 'images/hero/source.jpg', 'images/hero/Luna-5218.jpg']
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [nextImageIndex, setNextImageIndex] = useState(1)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // Preload images and track loading status
@@ -32,7 +31,6 @@ export default function Hero() {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-      setNextImageIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, 5000)
 
     return () => clearInterval(interval)

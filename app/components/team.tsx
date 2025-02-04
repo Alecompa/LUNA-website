@@ -7,7 +7,6 @@ import { useState, useEffect } from "react"
 export default function Team() {
   const images = ['images/LUNA_collab-2.jpg']
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [nextImageIndex, setNextImageIndex] = useState(1)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // Preload images and track loading status
@@ -32,7 +31,6 @@ export default function Team() {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-      setNextImageIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, 5000)
 
     return () => clearInterval(interval)
