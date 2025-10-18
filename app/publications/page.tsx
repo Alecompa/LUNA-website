@@ -14,6 +14,7 @@ const publications = [
     authors: "Doe, J., Brown, E., Smith, J.",
     journal: "Cell",
     year: 2022,
+    doi: "10.1016/j.cell.2022.01.001",
   },
   {
     id: 3,
@@ -45,6 +46,18 @@ export default function Publications() {
                 <div>
                   <strong>Year:</strong> {pub.year}
                 </div>
+                {pub.doi && (<div>
+                  <strong>DOI:</strong>{" "}
+                  <a
+                    href={`https://doi.org/${pub.doi}`}
+                    className="text-blue-600 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {pub.doi}
+                  </a>
+                </div>
+                )}
               </div>
             </CardContent>
           </Card>
