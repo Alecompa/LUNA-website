@@ -22,7 +22,7 @@ const experiments = [
     id: 2,
     title: "SHADES at the Bellotti IBF",
     description:
-      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant",
+      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg in the framework of the SHADES project. Founded by ERC Starting Grant",
     image: "/images/experiments/shades.png",
   },
   {
@@ -34,9 +34,9 @@ const experiments = [
   },
   {
     id: 4,
-    title: "$^{12}$C+$^{12}$C at the Bellotti IBF",
+    title: "NUCLEAR at the LUNA400",
     description:
-      "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
+      "NUclear CLustering Effects in Astrophysical Reaction",
     image: "/images/experiments/12C_12C.jpg",
   },
 ]

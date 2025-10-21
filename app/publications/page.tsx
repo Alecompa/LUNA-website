@@ -80,14 +80,14 @@ function AuthorsList({ authors }: { authors: string }) {
   const authorArray = authors.split(", ")
   
   // Mostra solo i primi 3 autori se non è espanso
-  const displayedAuthors = showAll ? authorArray : authorArray.slice(0, 2)
-  const hasMore = authorArray.length > 2
+  const displayedAuthors = showAll ? authorArray : authorArray.slice(0, 6)
+  const hasMore = authorArray.length > 6 
   
   return (
     <div>
       <strong>Authors:</strong>{" "}
       {displayedAuthors.join(", ")}
-      {!showAll && hasMore && "..."}
+      {!showAll && hasMore && " et al."}
       {hasMore && (
         <Button
           variant="link"
