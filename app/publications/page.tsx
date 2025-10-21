@@ -1,5 +1,8 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { JSX } from "react/jsx-runtime"
+import { Button } from "@/components/ui/button"
+import { JSX, useState } from "react"
 
 function formatReactionTitle(title: string): JSX.Element {
   // Regex: cerca ^numeri e sostituisce con <sup>
@@ -69,6 +72,35 @@ const publications = [
     doi: "10.1103/PhysRevC.111.035802"
   }
 ]
+
+function AuthorsList({ authors }: { authors: string }) {
+  const [showAll, setShowAll] = useState(false)
+  
+  // Dividi gli autori per virgola
+  const authorArray = authors.split(", ")
+  
+  // Mostra solo i primi 3 autori se non è espanso
+  const displayedAuthors = showAll ? authorArray : authorArray.slice(0, 2)
+  const hasMore = authorArray.length > 2
+  
+  return (
+    <div>
+      <strong>Authors:</strong>{" "}
+      {displayedAuthors.join(", ")}
+      {!showAll && hasMore && "..."}
+      {hasMore && (
+        <Button
+          variant="link"
+          size="sm"
+          onClick={() => setShowAll(!showAll)}
+          className="ml-2 p-0 h-auto text-blue-600"
+        >
+          {showAll ? "Show less" : "Show more"}
+        </Button>
+      )}
+    </div>
+  )
+}
 
 export default function Publications() {
   const lastUpdated = new Date().toLocaleDateString("en-US", {
@@ -237,9 +269,7 @@ export default function Publications() {
             </CardHeader>
             <CardContent>
               <div className="text-sm text-muted-foreground">
-                <div>
-                  <strong>Authors:</strong> {pub.authors}
-                </div>
+                <AuthorsList authors={pub.authors} />
                 <div>
                   <strong>Journal:</strong> {pub.journal}
                 </div>
