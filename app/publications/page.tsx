@@ -84,7 +84,7 @@ export default function Publications() {
     
     <div className="text-base text-gray-700 mb-6 space-y-4">
     <p>
-    The <strong>LUNA Collaboration</strong> has published over <strong>90 papers</strong> in refereed journals.
+    Test The <strong>LUNA Collaboration</strong> has published over <strong>90 papers</strong> in refereed journals.
     If you are interested in a specific paper that you cannot download, please get in touch with us and we will send you a copy.
     </p>
 
