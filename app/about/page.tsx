@@ -8,8 +8,8 @@ export default function About() {
         {/* Cover Image */}
         <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
           <Image
-            src="/placeholder.svg?height=400&width=800"
-            alt="SciCollab Team"
+            src="/images/LUNA_collab-3.jpg"
+            alt="LUNA Collaboration Team"
             fill
             className="object-cover"
             priority
