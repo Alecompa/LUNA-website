@@ -226,7 +226,7 @@ export default function Publications() {
     </ul>
 
     <br/>
-    <p> In the following the list of all LUNA Collaboration published papers</p>
+    <p> In the following the list of all LUNA Collaboration published papers (Yuppy)</p>
     <br/>
 
       <div className="space-y-6">
