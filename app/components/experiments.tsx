@@ -15,14 +15,14 @@ const experiments = [
     id: 1,
     title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF",
     description:
-      "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility",
+      "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility.",
     image: "/images/experiments/14N_pg_MV.jpeg",
   },
   {
     id: 2,
     title: "SHADES at the Bellotti IBF",
     description:
-      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg in the framework of the SHADES project. Founded by ERC Starting Grant",
+      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant.",
     image: "/images/experiments/shades.png",
   },
   {
@@ -37,6 +37,13 @@ const experiments = [
     title: "NUCLEAR at the LUNA400",
     description:
       "NUclear CLustering Effects in Astrophysical Reaction",
+    image: "/images/experiments/12C_12C.jpg",
+  },
+  {
+    id: 5,
+    title: "$^{19}$F(p,$\\gamma$)$^{20}$Ne at LUNA400",
+    description:
+      "Jakub is great!",
     image: "/images/experiments/12C_12C.jpg",
   },
 ]
