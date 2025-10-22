@@ -37,7 +37,7 @@ const experiments = [
     title: "NUCLEAR at the LUNA400",
     description:
       "NUclear CLustering Effects in Astrophysical Reaction",
-    image: "/images/experiments/12C_12C.jpg",
+    image: "/images/experiments/10B_alpha.jpeg",
   },
   {
     id: 5,
