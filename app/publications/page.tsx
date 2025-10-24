@@ -108,6 +108,16 @@ export default function Publications() {
     month: "long",
     day: "numeric",
   })
+  const itemsPerPage = 5
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.max(1, Math.ceil(publications.length / itemsPerPage))
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const currentPublications = publications.slice(startIndex, startIndex + itemsPerPage)
+
+  const goToPage = (page: number) => {
+    const nextPage = Math.min(Math.max(page, 1), totalPages)
+    setCurrentPage(nextPage)
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -262,7 +272,7 @@ export default function Publications() {
     <br/>
 
       <div className="space-y-6">
-        {publications.map((pub) => (
+        {currentPublications.map((pub) => (
           <Card key={pub.id}>
             <CardHeader>
               <CardTitle>{formatReactionTitle(pub.title)}</CardTitle>
@@ -292,6 +302,38 @@ export default function Publications() {
             </CardContent>
           </Card>
         ))}
+      </div>
+      <div className="mt-8 flex items-center justify-center gap-2">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => goToPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </Button>
+        {Array.from({ length: totalPages }, (_, index) => {
+          const pageNumber = index + 1
+
+          return (
+            <Button
+              key={pageNumber}
+              variant={currentPage === pageNumber ? "default" : "outline"}
+              size="sm"
+              onClick={() => goToPage(pageNumber)}
+            >
+              {pageNumber}
+            </Button>
+          )
+        })}
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => goToPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </Button>
       </div>
     </div>
   )
