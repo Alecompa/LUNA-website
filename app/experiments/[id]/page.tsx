@@ -41,9 +41,17 @@ const experiments = [
     id: 5,
     title: "$^{19}$F(p,$\\gamma$)$^{20}$Ne at LUNA400",
     description:
-      "Jakub e Axel are great.",
+      "Investigating the fluorine depletion in stellar environments through the $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction.",
     fullContent: "<strong>PI: Jakub Skowronski, Axel Boeltzing</strong> <br/><br/> The $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction plays a key role in the nucleosynthesis of fluorine in stellar environments, particularly in asymptotic giant branch (AGB) stars and novae. Accurate cross-section data at astrophysically relevant energies are essential to understand the depletion of fluorine and the operation of the CNO cycles in stellar interiors. Recent measurements at JUNA have provided new insights, but additional data at lower energies are necessary to reduce uncertainties in stellar models. <br /><br /> The LUNA measurement aims to extend the cross-section data of the $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction to even lower energies within the Gamow window relevant for hydrogen burning in stars.The goal is to improve constraints on the reaction rate and to test theoretical models, particularly those involving direct capture and low-energy resonances suggested by recent experiments. <br /><br /> The experiment is being conducted at the LUNA 400 kV accelerator located deep underground in the Gran Sasso Laboratory, benefiting from extremely low background conditions. A high-efficiency BGO detector is used to capture the full $\\gamma$-ray cascade following the $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction.Proton beams are delivered onto a fluorine-rich target under ultra-high vacuum, allowing precise determination of cross sections at energies approaching the stellar Gamow window.",
-    image: "/images/experiments/12C_12C.jpg",
+    image: "/images/experiments/10B_alpha.jpeg",
+  },
+  {
+    id: 6,
+    title: "$^{24}$Mg(p,$\\gamma$)$^{25}$Al at LUNA400",
+    description:
+      "A comprehensive study of the $^{24}$Mg(p,$\\gamma$)$^{25}$Al reaction for understanding Mg-Al cycle in stars.",
+    fullContent: "<strong>PI: David Rapagnani</strong> <br/><br/> The $^{24}$Mg(p,$\\gamma$)$^{25}$Al reaction (Q = 2271.37 keV) is relevant in the context of the MgAl cycle which activates during H burning for T ≥ 80 MK. While this reaction provides only a minor contribution to the stellar energy budget, it is a key process affecting the abundances of Mg and Al isotopes in Globular Cluster stars. Spectroscopic analyses of different stars in the same cluster have revealed a Mg–Al anti-correlation similar to the widespread O-Na anti-correlation in the same clusters. This unique abundance pattern is commonly interpreted as the result of the CNO, NeNa and MgAl cycles operating in stars that were born in the early epochs of cluster formation but whose identification has proven challenging. In addition, stardust grains that formed around AGB stars carry the signature of H burning at high temperatures, including indication of partial activation of the MgAl cycle in the form of enhanced $^{26}$Al production by $^{24}$Mg(p,$\\gamma$)$^{25}$Al. To gain a further insight on Al production in stars, a detailed knowledge of all the reactions involved in the MgAl cycle is required, including $^{24}$Mg(p,$\\gamma$)$^{25}$Al. <br/><br/> Experimental knowledge on this reaction is mostly based on a comprehensive cross section measurements at  E$_{lab}$ < 2.3 MeV [Trautvetter] and the last works performed at TUNL and at LUNA focused on the lowest energy resonances only. At temperatures relevant for hydrogen shell burning, the reaction rate is dominated by a direct capture (DC) component, while a resonance at E$_{lab}$ = 222.9 keV solely dominates at higher temperatures. At lower temperatures, a minor contribution is due to the low energy tail of the broad resonance at E$_{lab}$ = 823.3 keV and the uncertainty is dominated by the limited knowledge of the DC component. On the other hand, the DC component also strongly interferes with some of the higher energy resonances, which makes the analysis nontrivial. Due to large uncertainty on DC cross sections at E$_p$ = 823 keV and discrepancy on the E$_{lab}$ = 222.9 keV resonance strength ωγ previously measured, more direct data are necessary to resolve possible systematic offsets. The LUNA400 accelerator could produce proton beam with E$_{p}$ ≤ 400 keV and this give the possibility to explore the low energy region. To achieve the goal of a direct measurement of DC component below 400 keV, this experimental project, in the framework of the LUNA Collaboration, is using enriched solid target, mandatory to avoid beam-induced background from the overwhelmingly strong resonances in $^{25}$Mg(p,$\\gamma$)$^{26}$Al and $^{26}$Mg(p,$\\gamma$)$^{27}$Al at E$_{p}$ = 316 and 338 keV. Moreover, this experiment uses an high efficiency BGO detector, which is segmented for the discrimination between signal and background events.",
+    image: "/images/experiments/10B_alpha.jpeg",
   },
 ]
 
@@ -95,4 +103,4 @@ export default async function ExperimentPage({
       </article>
     </div>
   )
-} 
+}

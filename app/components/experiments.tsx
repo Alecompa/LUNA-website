@@ -43,9 +43,16 @@ const experiments = [
     id: 5,
     title: "$^{19}$F(p,$\\gamma$)$^{20}$Ne at LUNA400",
     description:
-      "Jakub is great!",
-    image: "/images/experiments/12C_12C.jpg",
+      "Studying the $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction to understand the nucleosynthesis in stars.",
+    image: "/images/experiments/10B_alpha.jpeg",
   },
+  {
+    id: 6,
+    title: "$^{24}$Mg(p,$\\gamma$)$^{25}$Al at LUNA400",
+    description:
+      "A comprehensive study of the $^{24}$Mg(p,$\\gamma$)$^{25}$Al reaction for astrophysical applications.",
+    image: "/images/experiments/10B_alpha.jpeg",
+  }
 ]
 
 export default async function Experiments() {
