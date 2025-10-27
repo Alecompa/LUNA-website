@@ -40,11 +40,11 @@ const publications = [
     doi: "10.1140/epja/s10050-025-01658-7"
   },
   {
-    id: 3, 
+    id: 3,
     title: "Detector characterization for a new ^12C+^12C reaction study at LUNA",
     authors: "Gesuè, R. M., Turkat, S., Skowronski, J., Aliotta, M., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Chillery, T., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Dell'Aquila, D., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fulop, Zs., Gervino, G., Guglielmetti, A., Gustavino, C., Gyurky, G., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Piatti, D., Prati, P., Rapagnani, D., Rigato, V., Robb, D., Russell, L., Sidhu, R. S., Spadavecchia, B., Straniero, O., Szücs, T., Zavatarelli, S.",
     journal: "Journal of Physics G: Nuclear and Particle Physics",
-    year: 2025, 
+    year: 2025,
     doi: "10.1088/1361-6471/ade0dc"
   },
   {
@@ -52,37 +52,77 @@ const publications = [
     title: "A high energy resolution gas target setup to study selected NeNa cycle reactions",
     authors: "Masha, E., Casaburo, F., Sidhu, R. S., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Dell’Aquila, D., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R. M., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Menegazzo, R., Mercogliano, D., Paticchio, V., Piatti, D., Prati, P., Rapagnani, D., Rigato, V., Robb, D., Schiavulli, L., Skowronski, J., Straniero, O., Szücs, T., Zavatarelli, S.",
     journal: "The European Physical Journal A",
-    year: 2025, 
+    year: 2025,
     doi: "10.1140/epja/s10050-025-01512-w"
   },
   {
     id: 5,
     title: "Revision of the CNO cycle: Rate of ^17O destruction in stars",
-    authors: "Rapagnani, D., Straniero, O., Imbriani, G., Aliotta, M., Ananna, C., Barile, F., Barbieri, L., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R. M., Gyürky, Gy., Guglielmetti, A., Gustavino, C., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Piatti, D., Prati, P., Rigato, V., Robb, D., Sidhu, R. S., Skowronski, J., Szücs, T., Zavatarelli, S. (LUNA Collaboration)",
+    authors: "Rapagnani, D., Straniero, O., Imbriani, G., Aliotta, M., Ananna, C., Barile, F., Barbieri, L., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R. M., Gyürky, Gy., Guglielmetti, A., Gustavino, C., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Piatti, D., Prati, P., Rigato, V., Robb, D., Sidhu, R. S., Skowronski, J., Szücs, T., Zavatarelli, S., (LUNA Collaboration)",
     journal: "Physical Review C",
-    year: 2025, 
+    year: 2025,
     doi: "10.1103/PhysRevC.111.025805"
   },
   {
-    id: 6, 
+    id: 6,
     title: "Comparative analysis of R-matrix fitting: ^12C(p,\\gamma)^13N as a test case",
-    authors: "Skowronski, J., Piatti, D., Rapagnani, D., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R. M., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Perrino, R., Prati, P., Rigato, V., Robb, D., Schiavulli, L., Sidhu, R. S., Straniero, O., Szücs, T., Turkat, S., Zavatarelli, S. (LUNA Collaboration)",
+    authors: "Skowronski, J., Piatti, D., Rapagnani, D., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R. M., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Perrino, R., Prati, P., Rigato, V., Robb, D., Schiavulli, L., Sidhu, R. S., Straniero, O., Szücs, T., Turkat, S., Zavatarelli, S., (LUNA Collaboration)",
     journal: "Physical Review C",
     year: 2025,
     doi: "10.1103/PhysRevC.111.035802"
+  },
+  {
+    id: 7,
+    title: "Status and future directions for direct cross-section measurement of the ^13C(\\alpha,n)^16O reaction for astrophysics",
+    authors: "Csedreki, L., Gyürky, Gy., Rapagnani, D., Ciani, G. F., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Casaburo, F., Cavanna, F., Colombetti, P., Compagnucci, A., Corvisiero, P., Davinson, T., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Guglielmetti, A., Gustavino, C., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Paticchio, V., Perrino, R., Piatti, D., Prati, P., Robb, D., Schiavulli, L., Sidhu, R. S., Skowronski, J., Straniero, O., Szücs, T., Zavatarelli, S., (LUNA Collaboration)",
+    journal: "Journal of Physics G: Nuclear and Particle Physics",
+    year: 2024,
+    doi: "10.1088/1361-6471/ad6a2a"
+  },
+  {
+    id: 8,
+    title: "Novel approach to infer the D(p,\\gamma)^3He angular distribution: experimental results and comparison with theoretical calculations",
+    authors: "Stöckel, K., Mozumdar, N., Zavatarelli, S., Ferraro, F., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Cavanna, F., Casaburo, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Depalo, R., Dell’Aquila, D., Di Leva, A., Elekes, Z., Formicola, A., Fülöp, Zs., Gervino, G., Gesuè, R., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Kievsky, A., Imbriani, G., Junker, M., Lugaro, M., Marcucci, L. E., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Mossa, V., Paticchio, V., Piatti, D., Prati, P., Rapagnani, D., Rigato, V., Robb, D., Schiavulli, L., Sidhu, R. S., Skowronski, J., Straniero, O., Szücs, T., Viviani, M.",
+    journal: "Physical Review C",
+    year: 2024,
+    doi: "10.1103/PhysRevC.110.L032801"
+  },
+  {
+    id: 9,
+    title: "First Direct Measurement of the 64.5 keV Resonance Strength in the  ^17O(p,\\gamma)^18F Reaction",
+    authors: "Gesuè, R. M., Ciani, G. F., Piatti, D., Boeltzig, A., Rapagnani, D., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., De Gregorio, G. M., Dell’Aquila, D., Depalo, R., Di Leva, A., Elekes, Z., Ferraro, F., Formicola, A., Fülöp, Zs., Gervino, G., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Imbriani, G., Junker, M., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Perrino, R., Prati, P., Rigato, V., Robb, D., Schiavulli, L., Sidhu, R. S., Skowronski, J., Straniero, O., Szücs, T., Zavatarelli, S., (LUNA Collaboration)",
+    journal: "Physical Review Letters",
+    year: 2024,
+    doi: "10.1103/PhysRevLett.133.052701"
+  },
+  {
+    id: 10,
+    title: "Direct capture cross section and resonances in the ^22Ne(p,\\gamma)^23Na reaction at low energy",
+    authors: "Takács, M. P., Ferraro, F., Piatti, D., Skowronski, J., Aliotta, M., Ananna, C., Barbieri, L., Barile, F., Bemmerer, D., Best, A., Boeltzig, A., Broggini, C., Bruno, C. G., Caciolli, A., Campostrini, M., Casaburo, F., Cavanna, F., Ciani, G. F., Colombetti, P., Compagnucci, A., Corvisiero, P., Csedreki, L., Davinson, T., Dell'Aquila, D., Depalo, R., Di Leva, A., Elekes, Z., Formicola, A., Fülöp, Zs., Gervino, G., Gesué, R. M., Guglielmetti, A., Gustavino, C., Gyürky, Gy., Imbriani, G., Junker, M., Karakas, A., Lugaro, M., Marigo, P., Marsh, J., Masha, E., Menegazzo, R., Mercogliano, D., Paticchio, V., Prati, P., Rapagnani, D., Rigato, V., Robb, D., Schiavulli, L., Sidhu, R. S., Straniero, O., Szücs, T., Zavatarelli, S., (LUNA Collaboration)",
+    journal: "Physical Review C",
+    year: 2024,
+    doi: "10.1103/PhysRevC.109.064627"
+  },
+  {
+    id: 11,
+    title: "Detectors and Shieldings: Past and Future at LUNA",
+    authors: "Ananna, C., Barbieri, L., Boeltzig, A., Campostrini, M., Casaburo, F., Compagnucci, A., Csedreki, L., Gesue, R. M., Marsh, J., Mercogliano, D., Piatti, D., Robb, D., Sidhu, R. S., Skowronski, J.",
+    journal: "Universe",
+    year: 2024,
+    doi: "10.3390/universe10050228"
   }
 ]
 
 function AuthorsList({ authors }: { authors: string }) {
   const [showAll, setShowAll] = useState(false)
-  
+
   // Dividi gli autori per virgola
   const authorArray = authors.split(", ")
-  
+
   // Mostra solo i primi 3 autori se non è espanso
   const displayedAuthors = showAll ? authorArray : authorArray.slice(0, 6)
-  const hasMore = authorArray.length > 6 
-  
+  const hasMore = authorArray.length > 6
+
   return (
     <div>
       <strong>Authors:</strong>{" "}
@@ -123,7 +163,7 @@ export default function Publications() {
     <div className="container mx-auto px-4 py-8">
     <h1 className="text-3xl font-bold mb-8">Publications</h1>
     <p className="text-sm text-gray-500 mb-6">Last update: {lastUpdated}</p>
-    
+
     <div className="text-base text-gray-700 mb-6 space-y-4">
     <p>
     Test The <strong>LUNA Collaboration</strong> has published over <strong>90 papers</strong> in refereed journals.
@@ -211,7 +251,7 @@ export default function Publications() {
       rel="noopener noreferrer"
       className="text-blue-600 hover:underline"
     >
-      Quanta magazine interview by Thomas Lewton 
+      Quanta magazine interview by Thomas Lewton
     </a>
     </li>
     <li>
@@ -231,7 +271,7 @@ export default function Publications() {
       rel="noopener noreferrer"
       className="text-blue-600 hover:underline"
     >
-      Nature Italy: research highlight by Michele Catanzaro (english version) 
+      Nature Italy: research highlight by Michele Catanzaro (english version)
     </a>
     </li>
     <li>
@@ -241,7 +281,7 @@ export default function Publications() {
       rel="noopener noreferrer"
       className="text-blue-600 hover:underline"
     >
-      Nature Italy: research highlight by Michele Catanzaro (italian version) 
+      Nature Italy: research highlight by Michele Catanzaro (italian version)
     </a>
     </li>
     <li>
