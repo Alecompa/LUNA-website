@@ -1,36 +1,242 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LUNA Website
+
+Official website for the Laboratory for Underground Nuclear Astrophysics (LUNA) at Gran Sasso National Laboratory.
+
+## About LUNA
+
+LUNA (Laboratory for Underground Nuclear Astrophysics) is a cutting-edge research facility that studies charged-particle induced reactions of astrophysical interest deep underground. Our 400kV accelerator and state-of-the-art detection systems enable us to explore stellar nucleosynthesis and understand the nuclear reactions that power stars.
+
+## Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** Custom components built with shadcn/ui
+- **Animations:** Framer Motion
+- **Content:** Markdown-based content management
+- **Image Optimization:** Next.js Image component
+
+## Project Structure
+
+```
+LUNA-website/
+├── app/                          # Next.js app directory
+│   ├── components/               # Page-specific components
+│   │   ├── content-display.tsx   # Markdown content renderer
+│   │   ├── content-preview-card.tsx
+│   │   ├── experiments.tsx       # Experiments showcase
+│   │   ├── footer.tsx
+│   │   ├── header.tsx
+│   │   ├── hero.tsx              # Homepage hero section
+│   │   ├── image-carousel.tsx    # Interactive image gallery
+│   │   ├── news-preview.tsx
+│   │   ├── science-posts-preview.tsx
+│   │   └── team.tsx              # Team member display
+│   ├── about/                    # About page
+│   ├── blog/                     # Science blog posts
+│   ├── contact/                  # Contact page
+│   ├── experiments/              # Individual experiment pages
+│   ├── news/                     # News and articles
+│   ├── publications/             # Publications page
+│   ├── layout.tsx                # Root layout
+│   ├── page.tsx                  # Homepage
+│   └── globals.css               # Global styles
+├── components/                   # Shared UI components
+│   ├── ui/                       # shadcn/ui components
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── carousel.tsx
+│   │   └── ... (other UI primitives)
+│   └── theme-provider.tsx        # Dark mode support
+├── content/                      # Markdown content
+│   ├── articles/                 # News articles
+│   │   ├── 14Npg.md
+│   │   ├── pubblication.md
+│   │   └── shades.md
+│   └── posts/                    # Blog posts
+│       └── physics-post.md
+├── public/                       # Static assets
+│   └── images/                   # Image assets
+│       ├── hero/                 # Hero section images
+│       ├── experiments/          # Experiment images
+│       ├── articles/             # Article images
+│       └── posts/                # Blog post images
+├── utils/                        # Utility functions
+│   ├── markdown.ts               # Markdown processing
+│   └── processLatex.ts           # LaTeX equation rendering
+└── lib/
+    └── utils.ts                  # Shared utilities
+```
+
+## Features
+
+### 🏠 Homepage
+- Dynamic hero section with rotating background images
+- Latest news preview section
+- Interactive experiments showcase
+- **Image carousel** with hover effects and fullscreen viewer
+- Blog posts preview
+- Team member gallery
+
+### 📰 News & Blog
+- Markdown-based content management
+- Support for LaTeX equations
+- Image embedding and optimization
+- Individual article/post pages with dynamic routing
+
+### 🔬 Experiments
+- Showcase of ongoing research projects
+- Detailed experiment pages with images and descriptions
+- Easy content updates via markdown files
+
+### 🎨 Interactive Features
+- **Image Carousel:**
+  - Hover to view descriptions with darkening effect
+  - Click to open fullscreen viewer
+  - Navigate with arrow buttons or keyboard (←/→)
+  - Smooth zoom animations
+  - Escape key to close
+- Dark mode support
+- Responsive design for all devices
+- Smooth animations and transitions
+
+### 📚 Publications
+- Comprehensive publication listing
+- Searchable and filterable
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.x or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd LUNA-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content Management
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Adding News Articles
 
-## Learn More
+1. Create a new `.md` file in `content/articles/`
+2. Add frontmatter with metadata:
+```markdown
+---
+title: "Your Article Title"
+date: "2025-01-15"
+author: "Author Name"
+excerpt: "Brief description"
+image: "/images/articles/your-image.jpg"
+---
 
-To learn more about Next.js, take a look at the following resources:
+Your article content here...
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adding Blog Posts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a new `.md` file in `content/posts/`
+2. Follow the same frontmatter format as articles
+3. Use LaTeX for equations: `$E = mc^2$` (inline) or `$$...$$` (block)
 
-## Deploy on Vercel
+### Adding Images
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Place images in appropriate subdirectory in `public/images/`
+2. Reference in markdown: `![Alt text](/images/folder/image.jpg)`
+3. Next.js will automatically optimize images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Component Development
+
+The project uses:
+- **shadcn/ui** for base components (in `components/ui/`)
+- Custom components for page-specific features (in `app/components/`)
+- Tailwind CSS for styling
+- Framer Motion for animations
+
+### Adding New Pages
+
+1. Create a new directory in `app/` (e.g., `app/new-page/`)
+2. Add a `page.tsx` file
+3. The route will automatically be available at `/new-page`
+
+## Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy is using the [Vercel Platform](https://vercel.com):
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Vercel will automatically detect Next.js and configure the build
+4. Deploy!
+
+### Other Platforms
+
+Build the project:
+```bash
+npm run build
+```
+
+The output will be in the `.next` directory. Serve it using:
+```bash
+npm run start
+```
+
+## Environment Variables
+
+Create a `.env.local` file for environment-specific variables (if needed):
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## License
+
+[Add appropriate license information]
+
+## Contact
+
+For questions about the LUNA project or this website, please visit our [contact page](http://localhost:3000/contact).
+
+---
+
+Built with ❤️ by the LUNA Collaboration
