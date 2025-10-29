@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Carousel,
@@ -6,79 +7,40 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { processLatex } from "@/utils/processLatex"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import Link from "next/link"
-
-const experiments = [
-  {
-    id: 1,
-    title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF",
-    description:
-      "Esploring the solar physics at the 3.5 MV accelerator of LNGS Bellotti Ion Beam Facility.",
-    image: "/images/experiments/14N_pg_MV.jpeg",
-  },
-  {
-    id: 2,
-    title: "SHADES at the Bellotti IBF",
-    description:
-      "Measuring the s-process neutron source reaction $^{22}\\textup{Ne}$($\\alpha$,n)$^{25}$Mg. Founded by ERC Starting Grant.",
-    image: "/images/experiments/shades.png",
-  },
-  {
-    id: 3,
-    title: "$^{12}$C+$^{12}$C at the Bellotti IBF",
-    description:
-      "Exploring the Carbon fusion thorugh $\\gamma$-ray detection.",
-    image: "/images/experiments/12C_12C.jpg",
-  },
-  {
-    id: 4,
-    title: "NUCLEAR at the LUNA400",
-    description:
-      "NUclear CLustering Effects in Astrophysical Reaction",
-    image: "/images/experiments/10B_alpha.jpeg",
-  },
-  {
-    id: 5,
-    title: "$^{19}$F(p,$\\gamma$)$^{20}$Ne at LUNA400",
-    description:
-      "Studying the $^{19}$F(p,$\\gamma$)$^{20}$Ne reaction to understand the nucleosynthesis in stars.",
-    image: "/images/experiments/10B_alpha.jpeg",
-  },
-  {
-    id: 6,
-    title: "$^{24}$Mg(p,$\\gamma$)$^{25}$Al at LUNA400",
-    description:
-      "A comprehensive study of the $^{24}$Mg(p,$\\gamma$)$^{25}$Al reaction for astrophysical applications.",
-    image: "/images/experiments/10B_alpha.jpeg",
-  }
-]
+import { getOngoingExperiments } from "@/utils/markdown"
 
 export default async function Experiments() {
-  const processedExperiments = await Promise.all(
-    experiments.map(async (experiment) => ({
-      ...experiment,
-      title: await processLatex(experiment.title),
-      description: await processLatex(experiment.description),
-    })),
-  )
+  const ongoingExperiments = await getOngoingExperiments()
+
+  if (!ongoingExperiments || ongoingExperiments.length === 0) {
+    return null
+  }
 
   return (
     <section id="experiments" className="py-16 muted-foreground">
-      <div className="container mx-auto px-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Ongoing Experiments</h2>
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> */}
+      <div className="container mx-auto px-4 md:px-16">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h2 className="text-3xl font-bold">Ongoing Experiments</h2>
+            <p className="text-muted-foreground mt-2">Current research at LUNA facilities</p>
+          </div>
+          <Link href="/experiments">
+            <Button variant="outline">View All Experiments</Button>
+          </Link>
+        </div>
+        
         <Carousel>
           <CarouselContent>
-            {processedExperiments.map((experiment) => (
+            {ongoingExperiments.map((experiment) => (
               <CarouselItem key={experiment.id} className="md:basis-1/2 lg:basis-1/3">
-                <Link href={`/experiments/${experiment.id}`} key={experiment.id}>
-                  <Card className="overflow-hidden group">
+                <Link href={`/experiments/${experiment.id}`}>
+                  <Card className="overflow-hidden group h-full">
                     <div className="relative h-48 w-full">
                       <Image
-                        src={experiment.image}
-                        alt="LUNA experiment"
+                        src={experiment.coverImage || "/images/experiments/10B_alpha.jpeg"}
+                        alt={experiment.id}
                         fill
                         className="object-cover transition-transform group-hover:scale-105"
                       />
@@ -87,11 +49,21 @@ export default async function Experiments() {
                       <CardTitle>
                         <span dangerouslySetInnerHTML={{ __html: experiment.title }} />
                       </CardTitle>
+                      {experiment.facility && (
+                        <CardDescription className="text-sm">
+                          {experiment.facility}
+                        </CardDescription>
+                      )}
                     </CardHeader>
                     <CardContent>
-                      <CardDescription>
-                        <span dangerouslySetInnerHTML={{ __html: experiment.description }} />
+                      <CardDescription className="line-clamp-3">
+                        {experiment.excerpt}
                       </CardDescription>
+                      {experiment.pi && (
+                        <p className="text-xs text-muted-foreground mt-3">
+                          <strong>PI:</strong> {experiment.pi}
+                        </p>
+                      )}
                     </CardContent>
                   </Card>
                 </Link>
@@ -101,8 +73,6 @@ export default async function Experiments() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-
-        {/* </div> */}
       </div>
     </section>
   )

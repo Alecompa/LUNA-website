@@ -53,6 +53,12 @@ LUNA-website/
 │   │   ├── 14Npg.md
 │   │   ├── pubblication.md
 │   │   └── shades.md
+│   ├── experiments/              # Experiment descriptions
+│   │   ├── 14n-pg.md            # Ongoing experiments
+│   │   ├── shades.md
+│   │   ├── 12c-12c.md
+│   │   ├── 3he-3he-past.md      # Past experiments
+│   │   └── ...
 │   └── posts/                    # Blog posts
 │       └── physics-post.md
 ├── public/                       # Static assets
@@ -73,7 +79,7 @@ LUNA-website/
 ### 🏠 Homepage
 - Dynamic hero section with rotating background images
 - Latest news preview section
-- Interactive experiments showcase
+- **Ongoing experiments showcase** - automatically displays current research
 - **Image carousel** with hover effects and fullscreen viewer
 - Blog posts preview
 - Team member gallery
@@ -85,9 +91,17 @@ LUNA-website/
 - Individual article/post pages with dynamic routing
 
 ### 🔬 Experiments
-- Showcase of ongoing research projects
-- Detailed experiment pages with images and descriptions
-- Easy content updates via markdown files
+- **Dedicated experiments page** with ongoing and past experiments
+- Markdown-based content management with frontmatter metadata
+- Automatic categorization by status (ongoing/past)
+- Homepage automatically displays only ongoing experiments
+- Detailed experiment pages with:
+  - Principal Investigator information
+  - Facility details
+  - Scientific goals and methodology
+  - Astrophysical impact
+  - Tags for categorization
+- Support for LaTeX equations in experiment descriptions
 
 ### 🎨 Interactive Features
 - **Image Carousel:**
@@ -162,6 +176,39 @@ Your article content here...
 1. Create a new `.md` file in `content/posts/`
 2. Follow the same frontmatter format as articles
 3. Use LaTeX for equations: `$E = mc^2$` (inline) or `$$...$$` (block)
+
+### Adding Experiments
+
+1. Create a new `.md` file in `content/experiments/` with a descriptive slug (e.g., `14n-pg.md`)
+2. Add comprehensive frontmatter:
+```markdown
+---
+title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF"
+date: "2024-06-15"
+status: "ongoing"  # or "past"
+pi: "Principal Investigator Name"
+facility: "Facility Name"
+excerpt: "Brief description for preview cards"
+coverImage: "/images/experiments/your-image.jpg"
+tags: ["tag1", "tag2", "tag3"]
+---
+
+## Overview
+Your detailed experiment description...
+
+## Scientific Goals
+- Goal 1
+- Goal 2
+
+## Experimental Setup
+Detailed methodology...
+```
+
+3. **Important fields:**
+   - `status`: Must be either `"ongoing"` or `"past"`
+   - Ongoing experiments automatically appear on the homepage
+   - Use LaTeX for scientific notation in title and content
+   - Tags help categorize experiments
 
 ### Adding Images
 

@@ -40,6 +40,11 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/experiments" className="block py-2 md:py-0 primary hover:text-red-800">
+                Experiments
+              </Link>
+            </li>
+            <li>
               <Link href="/publications" className="block py-2 md:py-0 primary hover:text-red-800">
                 Publications
               </Link>
