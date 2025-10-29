@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Hero from "./components/hero"
 import Experiments from "./components/experiments"
+import ImageCarousel from "./components/image-carousel"
 import Team from "./components/team"
 import ContentPreviewCard from "./components/content-preview-card"
 import { Button } from "@/components/ui/button"
@@ -36,6 +37,8 @@ export default async function Home() {
       </section>
 
       <Experiments />
+
+      <ImageCarousel />
 
       {/* Science Posts Preview Section */}
       <section className="py-16 background">
