@@ -88,7 +88,7 @@ export default async function ExperimentPage({
         </article>
       </div>
     )
-  } catch (error) {
+  } catch {
     notFound()
   }
 }

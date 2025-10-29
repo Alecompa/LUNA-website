@@ -4,17 +4,18 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 
+const TEAM_IMAGES = ['images/LUNA_collab-2.jpg']
+
 export default function Team() {
-  const images = ['images/LUNA_collab-2.jpg']
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // Preload images and track loading status
   useEffect(() => {
     let loadedCount = 0
-    const totalImages = images.length
+    const totalImages = TEAM_IMAGES.length
 
-    images.forEach(imageUrl => {
+    TEAM_IMAGES.forEach(imageUrl => {
       const img = new Image()
       img.onload = () => {
         loadedCount++
@@ -30,7 +31,7 @@ export default function Team() {
     if (!imagesLoaded) return
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % TEAM_IMAGES.length)
     }, 5000)
 
     return () => clearInterval(interval)
@@ -46,7 +47,7 @@ export default function Team() {
 
   return (
     <section className="relative h-[80vh] overflow-hidden">
-      {images.map((image, index) => (
+      {TEAM_IMAGES.map((image, index) => (
         <div
           key={index}
           className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed transition-opacity duration-1000"

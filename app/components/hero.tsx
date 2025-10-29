@@ -4,17 +4,18 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 
+const HERO_IMAGES = ['images/hero/accelerator.jpg', 'images/hero/source.jpg', 'images/hero/Luna-5218.jpg']
+
 export default function Hero() {
-  const images = ['images/hero/accelerator.jpg', 'images/hero/source.jpg', 'images/hero/Luna-5218.jpg']
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // Preload images and track loading status
   useEffect(() => {
     let loadedCount = 0
-    const totalImages = images.length
+    const totalImages = HERO_IMAGES.length
 
-    images.forEach(imageUrl => {
+    HERO_IMAGES.forEach(imageUrl => {
       const img = new Image()
       img.onload = () => {
         loadedCount++
@@ -30,7 +31,7 @@ export default function Hero() {
     if (!imagesLoaded) return
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length)
     }, 5000)
 
     return () => clearInterval(interval)
@@ -46,7 +47,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-[80vh] overflow-hidden">
-      {images.map((image, index) => (
+      {HERO_IMAGES.map((image, index) => (
         <div
           key={index}
           className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed transition-opacity duration-1000"
