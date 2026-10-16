@@ -114,7 +114,13 @@ sup { font-size: 0.62em; line-height: 0; }
   backdrop-filter: saturate(160%) blur(18px);
   -webkit-backdrop-filter: saturate(160%) blur(18px);
   border-bottom: 1px solid var(--line);
+  /* Safari: own compositing layer so animated content below can't paint over or shift the blurred header */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
+/* keep page content (scroll-driven reveals, hover transforms) in a stacking context beneath the header */
+main { position: relative; z-index: 0; isolation: isolate; }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand img { width: 88px; height: auto; }
 .nav { display: flex; align-items: center; gap: 2px; font-size: 13.5px; font-weight: 500; }
