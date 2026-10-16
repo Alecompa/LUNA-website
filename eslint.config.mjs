@@ -11,6 +11,8 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // Plain <img> is intentional: the static export has no image-optimisation service.
+  { rules: { "@next/next/no-img-element": "off" } },
 ];
 
 export default eslintConfig;

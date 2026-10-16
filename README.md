@@ -52,14 +52,15 @@ Keep the existing GitHub-connected project. Use the Next.js preset, `npm run bui
 
 ## Content
 
-- `content/imported/legacy.json`: all imported scientific content, experiment statuses, original references and five numerical rate tables.
-- `content/imported/manifest.json`: pinned source commit, source-to-route map, content fingerprints and local-link audit.
-- `content/updates.json`: publication and reaction-rate additions after the pinned legacy import. The October 2026 ¹⁶O(p,γ)¹⁷F table was supplied as `16Opg17N.txt`; the text download preserves its bytes and the ZIP preserves its original filename.
-- `content/experiments/`: existing Markdown descriptions, retained as additional background in the corresponding experiment pages.
-- `content/articles/`, `content/posts/`: existing news and science stories. The unfinished science story is visibly marked as in preparation.
-- `public/legacy/images/`: assets and original downloads from the backup.
-- `public/data/rates/`: byte-preserved source text/ZIP files and CSV derivatives.
-- `docs/PORTING.md`: scope, editorial decisions and remaining source caveats.
+See `docs/REDESIGN.md` for the site map, design system and how to add interactive content.
+
+- `content/imported/legacy.json`: imported archive content, experiment statuses, references and rate tables.
+- `content/updates.json`: publications and rate tables added after the import.
+- `lib/content.ts`: editorial layer (burning stages, figures, facility specs, key results, publication summaries).
+- `content/articles/`: collaboration news stories in Markdown.
+- `public/media/`: web-sized photos and figures from the 2022 and 2026 reviews.
+- `public/legacy/images/`, `public/data/rates/`: archive assets and original rate downloads.
+- `docs/PORTING.md`: original port scope and source caveats.
 
 To repeat the legacy import from a local checkout (Python with `beautifulsoup4` installed):
 
