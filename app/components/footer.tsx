@@ -5,26 +5,19 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <img
-            src={asset("/logo_v5h_dark.png")}
-            alt="LUNA"
-            width="130"
-            height="52"
-          />
+          <img src={asset("/logo_v5h_dark.png")} alt="LUNA" width="110" height="44" />
           <p>
-            Laboratory for Underground
+            Laboratory for Underground Nuclear Astrophysics
             <br />
-            Nuclear Astrophysics
-          </p>
-          <p className="muted-text">
-            INFN · Laboratori Nazionali del Gran Sasso
+            INFN Laboratori Nazionali del Gran Sasso
             <br />
-            Assergi, L’Aquila, Italy
+            Assergi (L’Aquila), Italy
           </p>
         </div>
         <div>
           <h2>Research</h2>
           <Link href="/experiments/">Experiments</Link>
+          <Link href="/facilities/">Facilities</Link>
           <Link href="/reaction-rates/">Reaction rates</Link>
           <Link href="/publications/">Publications</Link>
           <Link href="/theses/">Theses</Link>
@@ -33,20 +26,19 @@ export default function Footer() {
           <h2>Collaboration</h2>
           <Link href="/about/">About LUNA</Link>
           <Link href="/collaboration/">People & institutions</Link>
-          <Link href="/network/">Networks</Link>
           <Link href="/work-with-us/">Work with us</Link>
+          <Link href="/news/">News</Link>
         </div>
         <div>
-          <h2>Explore</h2>
-          <Link href="/news/">News</Link>
-          <Link href="/blog/">Science stories</Link>
-          <Link href="/contact/">Contact</Link>
-          <a href="https://www.lngs.infn.it/">Gran Sasso laboratories ↗</a>
+          <h2>Contact</h2>
+          <Link href="/contact/">Get in touch</Link>
+          <a href="https://www.lngs.infn.it/">LNGS ↗</a>
+          <a href="https://www.infn.it/">INFN ↗</a>
         </div>
       </div>
       <div className="shell footer-bottom">
         <span>© {new Date().getFullYear()} The LUNA Collaboration</span>
-        <span>Exploring the stars from deep underground.</span>
+        <span>1.4 km under the Gran Sasso</span>
       </div>
     </footer>
   );

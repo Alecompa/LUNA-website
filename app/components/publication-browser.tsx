@@ -1,11 +1,72 @@
-'use client'
-import { useState } from 'react'
-import { plainTitle } from '@/lib/paths'
-import LegacyContent from './legacy-content'
-type Paper={year:string;titleHtml:string;parts:string[]}
-export default function PublicationBrowser({papers,overview}:{papers:Paper[];overview:string}){
- const [query,setQuery]=useState(''),[year,setYear]=useState('all'),[page,setPage]=useState(1)
- const filtered=papers.filter(p=>(year==='all'||p.year===year)&&plainTitle(p.titleHtml+p.parts.join('')).toLowerCase().includes(query.toLowerCase()))
- const pageSize=12,total=Math.max(1,Math.ceil(filtered.length/pageSize)),visible=filtered.slice((page-1)*pageSize,page*pageSize)
- return <><details className="archive-overview"><summary>Reviews, access & related coverage</summary><LegacyContent html={overview}/></details><div className="archive-search"><label><span className="sr-only">Search publications</span><input type="search" className="search-input" placeholder="Search title, author or reaction" value={query} onChange={e=>{setQuery(e.target.value);setPage(1)}}/></label><label><span className="sr-only">Filter by year</span><select value={year} onChange={e=>{setYear(e.target.value);setPage(1)}}><option value="all">All years</option>{[...new Set(papers.map(p=>p.year))].map(y=><option key={y}>{y}</option>)}</select></label><button className="button button-outline" onClick={()=>{setQuery('');setYear('all');setPage(1)}}>Reset filters</button></div><p className="result-count" aria-live="polite">{filtered.length} publications{query?' matching “'+query+'”':''}</p><div>{visible.map((p,i)=><article className="paper-row" key={p.year+'-'+i}><span className="paper-year">{p.year}</span><div><LegacyContent html={p.titleHtml} className="paper-title"/><LegacyContent html={p.parts[0]||''} className="paper-journal"/>{p.parts.length>1&&<details className="paper-details"><summary>Authors & details</summary><LegacyContent html={p.parts.slice(1).join('')}/></details>}</div></article>)}</div>{!filtered.length&&<div className="empty-state">No matching publications. Try another author, reaction or year.</div>}<nav className="pagination" aria-label="Publication pages"><button className="button button-outline" disabled={page===1} onClick={()=>setPage(page-1)}>← Previous</button><span>Page {page} of {total}</span><button className="button button-outline" disabled={page===total} onClick={()=>setPage(page+1)}>Next →</button></nav></>
+"use client";
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { STAGES, METHODS_STAGE, stageById, type StageId } from "@/lib/content";
+import { asset } from "@/lib/paths";
+import { reactionHtml } from "@/lib/format";
+
+type Item = {
+  slug: string; year: string; titleHtml: string; title: string; journal: string;
+  authors: string; short: string; stage: StageId; summary?: string; highlight: boolean; thumb?: string;
+};
+const FILTERS = [...STAGES, METHODS_STAGE];
+
+export default function PublicationBrowser({ items }: { items: Item[] }) {
+  const [stage, setStage] = useState<string>("all");
+  const [query, setQuery] = useState("");
+  const [only, setOnly] = useState(false);
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    return items.filter(
+      (p) =>
+        (stage === "all" || p.stage === stage) &&
+        (!only || p.highlight) &&
+        `${p.title} ${p.journal} ${p.authors}`.toLowerCase().includes(q),
+    );
+  }, [items, stage, query, only]);
+  const years = [...new Set(filtered.map((p) => p.year))];
+  return (
+    <>
+      <div className="toolbar">
+        <div className="seg" role="group" aria-label="Topic">
+          <button aria-pressed={stage === "all"} onClick={() => setStage("all")}>All</button>
+          {FILTERS.map((s) => (
+            <button key={s.id} aria-pressed={stage === s.id} onClick={() => setStage(s.id)} style={{ "--c": s.color } as React.CSSProperties}>
+              <i />{s.short}
+            </button>
+          ))}
+        </div>
+        <div className="seg" style={{ gap: 8 }}>
+          <button aria-pressed={only} onClick={() => setOnly(!only)}>★ Highlights</button>
+          <input type="search" className="search" placeholder="Title, author, journal" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search publications" />
+        </div>
+      </div>
+      <p className="count" aria-live="polite">{filtered.length} publications</p>
+      <div className="pub-list">
+        {years.map((y) => (
+          <section key={y} className="pub-year">
+            <h2>{y}</h2>
+            <div className="pub-items">
+              {filtered.filter((p) => p.year === y).map((p) => (
+                <Link key={p.slug} href={`/publications/${p.slug}/`} className="pub-row" style={{ "--c": stageById(p.stage).color } as React.CSSProperties}>
+                  <div>
+                    <h3 dangerouslySetInnerHTML={{ __html: reactionHtml(p.titleHtml) }} />
+                    <div className="pub-meta">
+                      <i />
+                      <span>{p.short}</span>
+                      {p.highlight && <span className="star">★ Highlight</span>}
+                    </div>
+                  </div>
+                  {p.thumb ? (
+                    <div className="pub-thumb"><img src={asset(p.thumb)} alt="" loading="lazy" /></div>
+                  ) : <span />}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
+        {!filtered.length && <div className="empty-state">No matching publications.</div>}
+      </div>
+    </>
+  );
 }

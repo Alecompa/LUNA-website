@@ -1,248 +1,240 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { asset, experiments, legacy, newsTitles } from "@/lib/site";
+import { FIGURES, PHOTOS, SITE_FACTS } from "@/lib/content";
+import { highlights, publications } from "@/lib/publications";
+import { formatDate } from "@/lib/format";
+import { Fig, Rx, StageChip } from "./components/ui";
+import ExperimentCard from "./components/experiment-card";
+import { institutions } from "@/lib/people";
+import StageMap from "./components/viz/stage-map";
+import VizSlot from "./components/viz/viz-slot";
+
 export default function Home() {
+  const ongoing = experiments.filter((e) => e.status === "ongoing");
+  const latest = publications[0];
+  const featured = highlights.filter((p) => p.figure).slice(0, 3);
+  const news = [...legacy.news].sort((a, b) => (a.date < b.date ? 1 : -1));
   return (
     <>
-      <section className="home-hero">
-        <img
-          className="hero-photo"
-          src={asset("/images/hero/accelerator.jpg")}
-          alt="Beam lines at the LUNA underground laboratory"
-        />
-        <div className="hero-shade" />
+      <section className="hero">
+        <img src={asset(PHOTOS.hero)} alt="The LUNA accelerator tube under Gran Sasso" />
         <div className="shell hero-content">
-          <p className="eyebrow light">
-            <span className="status-dot" /> GRAN SASSO NATIONAL LABORATORIES ·
-            ITALY
+          <p className="label" style={{ color: "rgba(255,255,255,.7)" }}>
+            INFN · Laboratori Nazionali del Gran Sasso
           </p>
-          <h1>
-            The stars,
-            <br />
-            from underground.
+          <h1 className="display" style={{ marginTop: 18 }}>
+            The stars, from underground.
           </h1>
-          <p>
-            Measuring the nuclear reactions
-            <br />
-            that shape our Universe.
+          <p className="lead">
+            Nuclear reactions that power stars and forge the elements, measured
+            at the energies where they really happen.
           </p>
-          <Link className="button button-red" href="/experiments/">
-            Explore our research <ArrowRight size={18} />
-          </Link>
-        </div>
-        <div className="hero-caption">
-          LUNA / UNDERGROUND NUCLEAR ASTROPHYSICS
-        </div>
-      </section>
-      <div className="research-strip">
-        <div className="shell">
-          <span>
-            <b>Since 1991</b> Pioneering underground astrophysics
-          </span>
-          <span>
-            <b>400 kV</b> LUNA accelerator
-          </span>
-          <span>
-            <b>3.5 MV</b> Bellotti Ion Beam Facility
-          </span>
-        </div>
-      </div>
-      <section className="shell intro-section">
-        <div>
-          <p className="eyebrow">A LABORATORY FOR THE UNIVERSE</p>
-          <h2>
-            Fundamental questions.
-            <br />
-            Extraordinary conditions.
-          </h2>
-        </div>
-        <div>
-          <p>
-            Deep beneath the Gran Sasso mountain, LUNA measures nuclear
-            reactions that are too rare to study at the Earth’s surface. Our
-            experiments connect the physics of atomic nuclei to the lives of
-            stars and the origin of the elements.
-          </p>
-          <Link className="text-link" href="/about/">
-            Discover LUNA <ArrowUpRight size={18} />
-          </Link>
-        </div>
-      </section>
-      <section className="section-tint">
-        <div className="shell section-pad">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">THE EXPERIMENTAL PROGRAMME</p>
-              <h2>Inside the laboratory</h2>
-            </div>
-            <Link className="text-link" href="/experiments/">
-              All experiments <ArrowRight size={18} />
+          <div className="hero-actions">
+            <Link className="btn btn-primary" href="/experiments/">
+              Experiments <ArrowRight size={16} />
+            </Link>
+            <Link className="btn btn-ghost" href="/about/" style={{ background: "rgba(255,255,255,.08)", color: "#fff", borderColor: "rgba(255,255,255,.25)" }}>
+              Why underground
             </Link>
           </div>
-          <div className="experiment-feature-grid">
-            <Link href="/experiments/12c-12c/" className="experiment-feature">
-              <img
-                src={asset("/images/experiments/12C_12C.jpg")}
-                alt="Carbon fusion experiment"
-              />
-              <div>
-                <span className="tag light-tag">
-                  BELLOTTI ION BEAM FACILITY
-                </span>
-                <h3>
-                  Carbon burning.
-                  <br />
-                  Stellar evolution.
-                </h3>
-                <p>
-                  Explore the ¹²C + ¹²C programme <ArrowUpRight size={19} />
-                </p>
+          <div className="hero-stats">
+            {SITE_FACTS.map((s) => (
+              <div key={s.label}>
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest result */}
+      <section className="section-sm">
+        <div className="shell">
+          <Link href={`/publications/${latest.slug}/`} className="card latest-card">
+            <div>
+              <span className="label" style={{ color: "var(--red)" }}>Latest · {latest.journal.split("·")[0]}</span>
+              <Rx as="h3" className="h3" html={latest.titleHtml} />
+            </div>
+            <ArrowUpRight />
+          </Link>
+        </div>
+      </section>
+
+      {/* Ongoing programme */}
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="label">Now running</span>
+              <h2 className="h2">Ongoing experiments</h2>
+            </div>
+            <Link className="link" href="/experiments/">
+              Full programme <ArrowRight size={16} />
             </Link>
-            <div className="experiment-list">
-              <p className="eyebrow">ONGOING EXPERIMENTS</p>
-              {experiments
-                .filter((e) => e.status === "ongoing")
-                .map((e) => (
-                  <Link key={e.id} href={"/experiments/" + e.id + "/"}>
-                    <div>
-                      <h3 dangerouslySetInnerHTML={{ __html: e.title }} />
-                      <span>{e.facility}</span>
-                    </div>
-                    <ArrowUpRight size={20} />
-                  </Link>
-                ))}
-              <Link className="text-link" href="/experiments/future/">
-                Future programme & facility history <ArrowRight size={17} />
+          </div>
+          <div className="exp-grid">
+            {ongoing.slice(0, 3).map((e) => (
+              <ExperimentCard key={e.id} e={e} />
+            ))}
+          </div>
+          <div className="exp-list mini-2">
+            {ongoing.slice(3).map((e) => (
+              <Link key={e.id} href={`/experiments/${e.id}/`} className="exp-mini" style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+                <span style={{ flexDirection: "column", alignItems: "start", gap: 2 }}>
+                  <Rx as="strong" html={e.title} />
+                  <span>{e.facility}</span>
+                </span>
+                <ArrowUpRight size={18} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Programme along the life of a star */}
+      <section className="section night">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="label">Thirty-five years of measurements</span>
+              <h2 className="h2">From the Big Bang to carbon burning</h2>
+            </div>
+            <Link className="link" href="/about/#networks">
+              The burning networks <ArrowRight size={16} />
+            </Link>
+          </div>
+          <VizSlot scene="stage-map">
+            <StageMap />
+          </VizSlot>
+        </div>
+      </section>
+
+      {/* Why underground */}
+      <section className="section">
+        <div className="shell feature">
+          <Fig figure={FIGURES.depth} />
+          <div>
+            <span className="label">Why underground</span>
+            <h3>A million times quieter</h3>
+            <p>
+              At stellar energies a reaction may fire once a day. Under 1.4 km
+              of rock, cosmic rays that would swamp the signal at the surface
+              almost vanish.
+            </p>
+            <div className="stat-inline">
+              <div><strong>10⁻⁶</strong><span>muon flux</span></div>
+              <div><strong>±300 eV</strong><span>beam energy</span></div>
+              <div><strong>pb–fb</strong><span>cross sections</span></div>
+            </div>
+            <Link className="link" href="/about/" style={{ marginTop: 28 }}>
+              How it works <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="section panel-bg">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="label">Results</span>
+              <h2 className="h2">Highlights</h2>
+            </div>
+            <Link className="link" href="/publications/">
+              All publications <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="grid-3">
+            {featured.map((p) => (
+              <Link key={p.slug} href={`/publications/${p.slug}/`} className="card highlight-card">
+                <div className="card-media">
+                  <img src={asset(p.figure!.src)} alt="" loading="lazy" />
+                </div>
+                <div className="card-body">
+                  <div className="card-top">
+                    <StageChip id={p.stage} />
+                    <span className="pub-meta">{p.year}</span>
+                  </div>
+                  <Rx as="h3" html={p.titleHtml} />
+                  {p.summary && <p>{p.summary}</p>}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Data */}
+      <section className="section night">
+        <div className="shell split-even">
+          <div>
+            <span className="label">Open data</span>
+            <h2 className="h2" style={{ margin: "14px 0 18px" }}>
+              Reaction rates for stellar models
+            </h2>
+            <p className="lead">
+              Tabulated LUNA rates with uncertainty bands, ready to download.
+            </p>
+            <div className="hero-actions">
+              <Link className="btn btn-light" href="/reaction-rates/">
+                Open the explorer <ArrowRight size={16} />
               </Link>
             </div>
           </div>
+          <div className="stats">
+            <div><strong>{legacy.rates.length}</strong><span>numerical rate tables</span></div>
+            <div><strong>{legacy.rates.reduce((n, r) => n + r.rows.length, 0)}</strong><span>temperature points</span></div>
+            <div><strong>±3σ</strong><span>uncertainty bands</span></div>
+            <div><strong>CSV</strong><span>and original files</span></div>
+          </div>
         </div>
       </section>
-      <section className="rate-promo">
-        <div className="shell rate-promo-inner">
-          <div>
-            <p className="eyebrow light">OPEN SCIENTIFIC DATA</p>
-            <h2>
-              From measurements
-              <br />
-              to stellar models.
-            </h2>
-            <p>
-              Explore LUNA reaction rates, their uncertainties
-              <br className="desktop-only" /> and the measurements behind them.
-            </p>
-            <Link className="button button-light" href="/reaction-rates/">
-              Explore reaction rates <ArrowRight size={18} />
+
+      {/* News */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="label">From the collaboration</span>
+              <h2 className="h2">News</h2>
+            </div>
+            <Link className="link" href="/news/">
+              All news <ArrowRight size={16} />
             </Link>
           </div>
-          <Link
-            className="rate-preview"
-            href="/reaction-rates/"
-            aria-label="Open the reaction-rate explorer"
-          >
-            <div className="plot-top">
-              <span>¹³C(α,n)¹⁶O</span>
-              <span>REACTION RATE</span>
-            </div>
-            <svg
-              viewBox="0 0 470 235"
-              role="img"
-              aria-label="Illustrative reaction-rate curve"
-            >
-              <g stroke="#ffffff18">
-                {[40, 85, 130, 175, 220].map((y) => (
-                  <path key={y} d={`M20 ${y}H450`} />
-                ))}
-                {[30, 135, 240, 345, 450].map((x) => (
-                  <path key={x} d={`M${x} 20V220`} />
-                ))}
-              </g>
-              <path
-                d="M25 218 C100 210 110 170 170 140 S260 100 315 65 S390 35 450 22 L450 44 C390 55 370 70 315 90 S225 137 170 165 S100 231 25 230Z"
-                fill="#efb49733"
-              />
-              <path
-                d="M25 224 C100 220 110 183 170 152 S260 119 315 77 S390 45 450 33"
-                fill="none"
-                stroke="#efb497"
-                strokeWidth="3"
-              />
-            </svg>
-            <div className="plot-bottom">
-              <span>Temperature / GK</span>
-              <span>
-                5 datasets <Download size={14} />
-              </span>
-            </div>
-            <small>Illustration · explore the tabulated data →</small>
-          </Link>
-        </div>
-      </section>
-      <section className="shell section-pad">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">FROM THE COLLABORATION</p>
-            <h2>News & announcements</h2>
+          <div className="news-grid">
+            {news.map((n) => (
+              <Link key={n.id} href={`/news/${n.id}/`} className="card news-card">
+                <div className={`card-media ${n.image?.includes("Logo") ? "logo" : ""}`}>
+                  {n.image ? <img src={asset(n.image)} alt="" loading="lazy" /> : <img src={asset(PHOTOS.collab2)} alt="" loading="lazy" />}
+                </div>
+                <div className="card-body">
+                  <span className="pub-meta">{formatDate(n.date)}</span>
+                  <h3>{newsTitles[n.id]}</h3>
+                </div>
+              </Link>
+            ))}
           </div>
-          <Link className="text-link" href="/news/">
-            All news <ArrowRight size={18} />
-          </Link>
-        </div>
-        <div className="news-grid">
-          {[...legacy.news].reverse().map((n, i) => (
-            <Link className="news-card" href={"/news/" + n.id + "/"} key={n.id}>
-              <div className={"news-image news-image-" + i}>
-                {n.image ? (
-                  <img src={asset(n.image)} alt="" />
-                ) : (
-                  <>
-                    <span>LUNA</span>
-                    <small>OPPORTUNITIES / 2026</small>
-                  </>
-                )}
-              </div>
-              <div className="news-meta">
-                <span>
-                  {i === 0 ? "OPPORTUNITIES" : i === 1 ? "PEOPLE" : "RESEARCH"}
-                </span>
-                <time dateTime={n.date}>
-                  {n.date
-                    ? new Date(n.date).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })
-                    : "From the collaboration"}
-                </time>
-              </div>
-              <h3>{newsTitles[n.id]}</h3>
-              <span className="text-link">
-                Read article <ArrowUpRight size={16} />
-              </span>
-            </Link>
-          ))}
         </div>
       </section>
-      <section className="shell community">
-        <img
-          src={asset("/images/LUNA_collab-3.jpg")}
-          alt="Members of the LUNA collaboration"
-        />
-        <div>
-          <p className="eyebrow">THE LUNA COLLABORATION</p>
-          <h2>Science across borders.</h2>
-          <p>
-            Researchers, students and institutions working together on the
-            nuclear physics of the cosmos.
-          </p>
-          <div className="button-row">
-            <Link className="button button-dark" href="/collaboration/">
-              Meet the collaboration <ArrowRight size={16} />
-            </Link>
-            <Link className="text-link" href="/work-with-us/">
-              Work with us <ArrowUpRight size={16} />
-            </Link>
+
+      {/* Collaboration */}
+      <section className="section-sm" style={{ paddingTop: 0, paddingBottom: 112 }}>
+        <div className="shell">
+          <div className="card collab-card">
+            <img src={asset(PHOTOS.collab)} alt="The LUNA collaboration" style={{ width: "100%", height: "100%", objectFit: "cover", minHeight: 320 }} />
+            <div className="card-body" style={{ padding: 40, justifyContent: "center", gap: 16 }}>
+              <span className="label">The collaboration</span>
+              <h2 className="h2">{institutions.length} institutions, one laboratory</h2>
+              <p style={{ fontSize: 16 }}>{[...new Set(institutions.map((i) => i.country))].join(" · ")}</p>
+              <div className="hero-actions" style={{ marginTop: 8 }}>
+                <Link className="btn btn-dark" href="/collaboration/">People <ArrowRight size={16} /></Link>
+                <Link className="btn btn-ghost" href="/work-with-us/">Work with us</Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

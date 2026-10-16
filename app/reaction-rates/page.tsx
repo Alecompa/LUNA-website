@@ -1,19 +1,12 @@
-import PageHeading from "../components/page-heading";
+import { PageHead } from "../components/ui";
 import RateExplorer from "../components/rate-explorer";
 import { legacy } from "@/lib/site";
-export const metadata = { title: "Reaction-rate explorer" };
+export const metadata = { title: "Reaction rates" };
 export default function ReactionRates() {
   return (
     <>
-      <PageHeading
-        title="Reaction rates"
-        eyebrow="DATA REPOSITORY"
-        description="Explore the tabulated thermonuclear rates, inspect their uncertainties, and download the original LUNA datasets."
-      />
-      <RateExplorer
-        rates={legacy.rates}
-        unavailable={legacy.unavailableRates}
-      />
+      <PageHead crumbs={[["Data"]]} title="Reaction rates" lead="Tabulated thermonuclear rates with ±1–3σ bands. Download the original tables or CSV." />
+      <RateExplorer rates={legacy.rates} unavailable={legacy.unavailableRates} />
     </>
   );
 }

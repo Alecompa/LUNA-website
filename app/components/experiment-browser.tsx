@@ -1,113 +1,70 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
-import { plainTitle } from "@/lib/paths";
-type Experiment = {
-  id: string;
-  title: string;
-  status: string;
-  facility: string;
-  excerpt: string;
-  pi: string;
-};
+import { STAGES, stageById } from "@/lib/content";
+import type { Experiment } from "@/lib/site";
+import { reactionHtml } from "@/lib/format";
+import ExperimentCard from "./experiment-card";
+
+const FACILITIES = ["Bellotti IBF", "LUNA 400 kV", "LUNA 50 kV"];
+
 export default function ExperimentBrowser({ items }: { items: Experiment[] }) {
-  const [status, setStatus] = useState("ongoing"),
-    [query, setQuery] = useState("");
+  const [stage, setStage] = useState("all");
+  const [facility, setFacility] = useState("all");
+  const [query, setQuery] = useState("");
   useEffect(() => {
-    const sync = () => {
-      const hash = window.location.hash.slice(1);
-      if (["ongoing", "past", "all"].includes(hash)) setStatus(hash);
-    };
-    sync();
-    window.addEventListener("hashchange", sync);
-    return () => window.removeEventListener("hashchange", sync);
+    const h = window.location.hash.slice(1);
+    if (STAGES.some((s) => s.id === h)) setStage(h);
   }, []);
-  const filtered = items.filter(
-    (e) =>
-      (status === "all" || e.status === status) &&
-      `${plainTitle(e.title)} ${e.facility} ${e.pi} ${e.excerpt}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
-  );
+  const match = (e: Experiment) =>
+    (stage === "all" || e.stage === stage) &&
+    (facility === "all" || e.facility === facility) &&
+    `${e.name} ${e.pi} ${e.facility}`.toLowerCase().includes(query.toLowerCase());
+  const ongoing = useMemo(() => items.filter((e) => e.status === "ongoing" && match(e)), [items, stage, facility, query]); // eslint-disable-line react-hooks/exhaustive-deps
+  const past = useMemo(() => items.filter((e) => e.status === "past" && match(e)), [items, stage, facility, query]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
-      <div className="experiment-tools">
-        <div className="filter-tabs" aria-label="Experiment status">
-          {[
-            ["ongoing", "Ongoing"],
-            ["past", "Past"],
-            ["all", "All experiments"],
-          ].map(([s, label]) => (
+      <div className="toolbar">
+        <div className="seg" role="group" aria-label="Burning stage">
+          <button aria-pressed={stage === "all"} onClick={() => setStage("all")}>All</button>
+          {STAGES.map((s) => (
             <button
-              key={s}
-              aria-pressed={status === s}
-              onClick={() => {
-                setStatus(s);
-                window.history.replaceState(null, "", "#" + s);
-              }}
+              key={s.id}
+              aria-pressed={stage === s.id}
+              onClick={() => setStage(s.id)}
+              style={{ "--c": s.color } as React.CSSProperties}
             >
-              {label}{" "}
-              <span>
-                ({items.filter((e) => s === "all" || e.status === s).length})
-              </span>
+              <i />
+              {s.short}
             </button>
           ))}
         </div>
-        <label className="relative">
-          <span className="sr-only">Search experiments</span>
-          <Search size={15} className="absolute right-3 top-3.5" />
-          <input
-            className="search-input"
-            placeholder="Reaction, investigator or facility"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
+        <div className="seg" style={{ gap: 8 }}>
+          <select className="select" value={facility} onChange={(e) => setFacility(e.target.value)} aria-label="Facility">
+            <option value="all">All facilities</option>
+            {FACILITIES.map((f) => <option key={f}>{f}</option>)}
+          </select>
+          <input className="search" placeholder="Search reaction or PI" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search experiments" />
+        </div>
       </div>
-      <p className="result-count" aria-live="polite">
-        {filtered.length} experiments · status follows the supplied LUNA
-        programme
-      </p>
-      <div className="experiment-results">
-        {filtered.map((e) => (
-          <Link
-            href={"/experiments/" + e.id + "/"}
-            key={e.id}
-            className="experiment-card"
-          >
-            <div className="card-status">
-              <span>
-                {e.status === "ongoing" ? "● Ongoing" : "Past programme"}
-              </span>
-              <ArrowUpRight size={17} />
-            </div>
-            <h2 dangerouslySetInnerHTML={{ __html: e.title }} />
-            <p>
-              {e.pi
-                ? `Principal investigator${e.pi.includes(",") ? "s" : ""}: ${e.pi}`
-                : "Published measurements and references"}
-            </p>
-            <footer>
-              <span>{e.facility}</span>
-              <span>Explore →</span>
-            </footer>
+
+      {ongoing.length > 0 && (
+        <>
+          <h2 className="block-title" style={{ marginTop: 24 }} id="ongoing">Ongoing · {ongoing.length}</h2>
+          <div className="exp-grid">
+            {ongoing.map((e) => <ExperimentCard key={e.id} e={e} />)}
+          </div>
+        </>
+      )}
+      <h2 className="block-title" id="past">Completed · {past.length}</h2>
+      <div className="exp-list">
+        {past.map((e) => (
+          <Link key={e.id} href={`/experiments/${e.id}/`} className="exp-mini" style={{ "--c": stageById(e.stage).color } as React.CSSProperties}>
+            <strong dangerouslySetInnerHTML={{ __html: reactionHtml(e.title) }} />
+            <span><i />{stageById(e.stage).short} · {e.facility}</span>
           </Link>
         ))}
-        {!filtered.length && (
-          <div className="empty-state">
-            No experiments match your search.{" "}
-            <button
-              className="text-link"
-              onClick={() => {
-                setQuery("");
-                setStatus("all");
-              }}
-            >
-              Clear filters
-            </button>
-          </div>
-        )}
+        {!past.length && !ongoing.length && <div className="empty-state">No experiments match.</div>}
       </div>
     </>
   );
