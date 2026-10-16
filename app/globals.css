@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  --background: 48.00 100.00% 99.02%;
+  --background: 0 5.88% 96.67%;
   --foreground: 0.00 0.00% 13.33%;
   --card: 0 0% 100%;
   --card-foreground: 0.00 0.00% 13.33%;
@@ -24,7 +24,7 @@
   --radius: 0.35rem;
   --ink: #222222;
   --red: #af2f37;
-  --paper: #fffefa;
+  --paper: #f7f6f6;
   --line: #dedfd9;
   --muted-ink: #666666;
 }
@@ -101,7 +101,7 @@ sup {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 254, 250, 0.97);
+  background: rgba(247, 246, 246, 0.97);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
