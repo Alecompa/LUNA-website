@@ -1,289 +1,83 @@
-# LUNA Website
+# LUNA website
 
-Official website for the Laboratory for Underground Nuclear Astrophysics (LUNA) at Gran Sasso National Laboratory.
+The LUNA collaboration website, built on the existing Next.js / React / Tailwind project. It exports a complete static HTML site with local CSS, JavaScript, images, fonts and reaction-rate downloads.
 
-## About LUNA
+- GitHub: https://github.com/Alecompa/LUNA-website
+- Testing deployment: https://luna-website-pi.vercel.app
+- Legacy content source: https://github.com/mariannavagnoni/LUNAweb
 
-LUNA (Laboratory for Underground Nuclear Astrophysics) is a cutting-edge research facility that studies charged-particle induced reactions of astrophysical interest deep underground. Our 400kV accelerator and state-of-the-art detection systems enable us to explore stellar nucleosynthesis and understand the nuclear reactions that power stars.
+## Run locally
 
-## Tech Stack
+Use Node.js 22 LTS or a newer compatible version.
 
-- **Framework:** [Next.js 14](https://nextjs.org) (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **UI Components:** Custom components built with shadcn/ui
-- **Animations:** Framer Motion
-- **Content:** Markdown-based content management
-- **Image Optimization:** Next.js Image component
-
-## Project Structure
-
-```
-LUNA-website/
-├── app/                          # Next.js app directory
-│   ├── components/               # Page-specific components
-│   │   ├── content-display.tsx   # Markdown content renderer
-│   │   ├── content-preview-card.tsx
-│   │   ├── experiments.tsx       # Experiments showcase
-│   │   ├── footer.tsx
-│   │   ├── header.tsx
-│   │   ├── hero.tsx              # Homepage hero section
-│   │   ├── image-carousel.tsx    # Interactive image gallery
-│   │   ├── news-preview.tsx
-│   │   ├── science-posts-preview.tsx
-│   │   └── team.tsx              # Team member display
-│   ├── about/                    # About page
-│   ├── blog/                     # Science blog posts
-│   ├── contact/                  # Contact page
-│   ├── experiments/              # Individual experiment pages
-│   ├── news/                     # News and articles
-│   ├── publications/             # Publications page
-│   ├── layout.tsx                # Root layout
-│   ├── page.tsx                  # Homepage
-│   └── globals.css               # Global styles
-├── components/                   # Shared UI components
-│   ├── ui/                       # shadcn/ui components
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   ├── carousel.tsx
-│   │   └── ... (other UI primitives)
-│   └── theme-provider.tsx        # Dark mode support
-├── content/                      # Markdown content
-│   ├── articles/                 # News articles
-│   │   ├── 14Npg.md
-│   │   ├── pubblication.md
-│   │   └── shades.md
-│   ├── experiments/              # Experiment descriptions
-│   │   ├── 14n-pg.md            # Ongoing experiments
-│   │   ├── shades.md
-│   │   ├── 12c-12c.md
-│   │   ├── 3he-3he-past.md      # Past experiments
-│   │   └── ...
-│   └── posts/                    # Blog posts
-│       └── physics-post.md
-├── public/                       # Static assets
-│   └── images/                   # Image assets
-│       ├── hero/                 # Hero section images
-│       ├── experiments/          # Experiment images
-│       ├── articles/             # Article images
-│       └── posts/                # Blog post images
-├── utils/                        # Utility functions
-│   ├── markdown.ts               # Markdown processing
-│   └── processLatex.ts           # LaTeX equation rendering
-└── lib/
-    └── utils.ts                  # Shared utilities
-```
-
-## Features
-
-### 🏠 Homepage
-- Dynamic hero section with rotating background images
-- Latest news preview section
-- **Ongoing experiments showcase** - automatically displays current research
-- **Image carousel** with hover effects and fullscreen viewer
-- Blog posts preview
-- Team member gallery
-
-### 📰 News & Blog
-- Markdown-based content management
-- Support for LaTeX equations
-- Image embedding and optimization
-- Individual article/post pages with dynamic routing
-
-### 🔬 Experiments
-- **Dedicated experiments page** with ongoing and past experiments
-- Markdown-based content management with frontmatter metadata
-- Automatic categorization by status (ongoing/past)
-- Homepage automatically displays only ongoing experiments
-- Detailed experiment pages with:
-  - Principal Investigator information
-  - Facility details
-  - Scientific goals and methodology
-  - Astrophysical impact
-  - Tags for categorization
-- Support for LaTeX equations in experiment descriptions
-
-### 🎨 Interactive Features
-- **Image Carousel:**
-  - Hover to view descriptions with darkening effect
-  - Click to open fullscreen viewer
-  - Navigate with arrow buttons or keyboard (←/→)
-  - Smooth zoom animations
-  - Escape key to close
-- Dark mode support
-- Responsive design for all devices
-- Smooth animations and transitions
-
-### 📚 Publications
-- Comprehensive publication listing
-- Searchable and filterable
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18.x or higher
-- npm, yarn, pnpm, or bun
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd LUNA-website
-```
-
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
-
-3. Run the development server:
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open http://localhost:3000. Development output is kept in `.next-dev/`, separate from production builds.
 
-## Content Management
+## Export for institutional hosting
 
-### Adding News Articles
-
-1. Create a new `.md` file in `content/articles/`
-2. Add frontmatter with metadata:
-```markdown
----
-title: "Your Article Title"
-date: "2025-01-15"
-author: "Author Name"
-excerpt: "Brief description"
-image: "/images/articles/your-image.jpg"
----
-
-Your article content here...
+```sh
+npm run export:html
 ```
 
-### Adding Blog Posts
+This builds the site, checks every local HTML link and asset reference, and creates:
 
-1. Create a new `.md` file in `content/posts/`
-2. Follow the same frontmatter format as articles
-3. Use LaTeX for equations: `$E = mc^2$` (inline) or `$$...$$` (block)
+- `out/`: the complete deployable website
+- `exports/luna-website-html.zip`: an uploadable archive for a domain root
 
-### Adding Experiments
+For a site served at `https://institution.example/luna/`, use:
 
-1. Create a new `.md` file in `content/experiments/` with a descriptive slug (e.g., `14n-pg.md`)
-2. Add comprehensive frontmatter:
-```markdown
----
-title: "$^{14}$N(p,$\\gamma$)$^{15}$O at Bellotti IBF"
-date: "2024-06-15"
-status: "ongoing"  # or "past"
-pi: "Principal Investigator Name"
-facility: "Facility Name"
-excerpt: "Brief description for preview cards"
-coverImage: "/images/experiments/your-image.jpg"
-tags: ["tag1", "tag2", "tag3"]
----
-
-## Overview
-Your detailed experiment description...
-
-## Scientific Goals
-- Goal 1
-- Goal 2
-
-## Experimental Setup
-Detailed methodology...
+```sh
+NEXT_PUBLIC_BASE_PATH=/luna npm run export:html
 ```
 
-3. **Important fields:**
-   - `status`: Must be either `"ongoing"` or `"past"`
-   - Ongoing experiments automatically appear on the homepage
-   - Use LaTeX for scientific notation in title and content
-   - Tags help categorize experiments
+That creates `exports/luna-website-luna.zip`. Upload its contents to the institution's `/luna/` directory. The path is compiled into the website; rebuild if the destination path changes. Leave the environment variable unset for Vercel and root hosting.
 
-### Adding Images
+The host only needs to serve static files, resolve directory URLs to `index.html`, and use `404.html` for missing pages. No Node.js server, PHP, database, image service, external font service or CDN is required at runtime. The data explorer and search controls use the included client-side JavaScript. Open the export over HTTP(S), not `file://`.
 
-1. Place images in appropriate subdirectory in `public/images/`
-2. Reference in markdown: `![Alt text](/images/folder/image.jpg)`
-3. Next.js will automatically optimize images
+To test a root export:
 
-## Development
+```sh
+python3 -m http.server 4173 --directory out --bind 127.0.0.1
+```
 
-### Available Scripts
+`npm start` serves the built `out/` folder at http://127.0.0.1:4173 using the included static preview server. Set the same `NEXT_PUBLIC_BASE_PATH` when previewing a subdirectory build.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+## Vercel
 
-### Component Development
+Keep the existing GitHub-connected project. Use the Next.js preset, `npm run build`, and the default output directory detection. Pushes to the configured production branch (`main`) should trigger the existing testing deployment. No replacement hosting project is required. `.vercel` credentials are neither needed nor committed.
 
-The project uses:
-- **shadcn/ui** for base components (in `components/ui/`)
-- Custom components for page-specific features (in `app/components/`)
-- Tailwind CSS for styling
-- Framer Motion for animations
+## Content
 
-### Adding New Pages
+- `content/imported/legacy.json`: all imported scientific content, experiment statuses, original references and five numerical rate tables.
+- `content/imported/manifest.json`: pinned source commit, source-to-route map, content fingerprints and local-link audit.
+- `content/experiments/`: existing Markdown descriptions, retained as additional background in the corresponding experiment pages.
+- `content/articles/`, `content/posts/`: existing news and science stories. The unfinished science story is visibly marked as in preparation.
+- `public/legacy/images/`: assets and original downloads from the backup.
+- `public/data/rates/`: byte-preserved source text/ZIP files and CSV derivatives.
+- `docs/PORTING.md`: scope, editorial decisions and remaining source caveats.
 
-1. Create a new directory in `app/` (e.g., `app/new-page/`)
-2. Add a `page.tsx` file
-3. The route will automatically be available at `/new-page`
+To repeat the legacy import from a local checkout (Python with `beautifulsoup4` installed):
 
-## Deployment
+```sh
+python3 scripts/import-legacy.py /absolute/path/to/LUNAweb
+npm run check:content
+```
 
-### Vercel (Recommended)
+Do not import a new snapshot without reviewing its scientific and editorial changes. The importer intentionally strips Joomla styles/scripts/forms, decodes public contact addresses, remaps internal links, and keeps all substantive text and references.
 
-The easiest way to deploy is using the [Vercel Platform](https://vercel.com):
+## Checks
 
-1. Push your code to GitHub
-2. Import the repository in Vercel
-3. Vercel will automatically detect Next.js and configure the build
-4. Deploy!
-
-### Other Platforms
-
-Build the project:
-```bash
+```sh
+npm run check:content
+npm run typecheck
 npm run build
+npm run check:export
 ```
 
-The output will be in the `.next` directory. Serve it using:
-```bash
-npm run start
-```
+Content checks cover 31 experiment records, status assignment, all 331 supplied rate rows, numerical column ordering, original-data hashes, CSV equality, public contacts and local assets. Export checks scan every generated HTML file, including subdirectory prefixes. Run `npm run lint` separately when needed.
 
-## Environment Variables
-
-Create a `.env.local` file for environment-specific variables (if needed):
-```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
-
-## Contributing
-
-1. Create a feature branch
-2. Make your changes
-3. Test thoroughly
-4. Submit a pull request
-
-## License
-
-[Add appropriate license information]
-
-## Contact
-
-For questions about the LUNA project or this website, please visit our [contact page](http://localhost:3000/contact).
-
----
-
-Built with ❤️ by the LUNA Collaboration
+The static build uses ordinary `<img>` elements intentionally, so it does not depend on a Next.js image-optimization service. Existing Next image components are configured as unoptimized.

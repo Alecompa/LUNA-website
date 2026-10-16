@@ -1,0 +1,365 @@
+{
+  "commit": "b894f1d3bfa33b3f658ce55f19493dabd3f50254",
+  "pages": [
+    {
+      "source": "index.php/new-about-us/ongoing-experiments?layout=edit&id=169.html",
+      "route": "/experiments/19f-pg/",
+      "sourceTextSha256": "c1b99e26927dd63f182cdab97df7a6561d493073148bc35f15df8e1a5840b533",
+      "sourceCharacters": 1441
+    },
+    {
+      "source": "index.php/new-about-us/ongoing-experiments?layout=edit&id=170.html",
+      "route": "/experiments/24mg-pg/",
+      "sourceTextSha256": "1ab4eddf2ccefc158700fccfb6674cfb5e3be6f876a0382796aa39c0ac92f1a9",
+      "sourceCharacters": 2807
+    },
+    {
+      "source": "index.php/new-about-us/ongoing-experiments?layout=edit&id=172.html",
+      "route": "/experiments/10b-alpha/",
+      "sourceTextSha256": "5c035f4b464ca02fbccda73f99b9478db6837a7316572bfddf3bdf532ef0b0d2",
+      "sourceCharacters": 1655
+    },
+    {
+      "source": "index.php/new-about-us/ongoing-experiments/2-uncategorised/164-22ne-a-n-25mg.html",
+      "route": "/experiments/shades/",
+      "sourceTextSha256": "cbf77abcb12373f96f4ddbbd16b59eb0c37897b27b90e535d130f685460f0326",
+      "sourceCharacters": 2310
+    },
+    {
+      "source": "index.php/new-about-us/ongoing-experiments?layout=edit&id=171.html",
+      "route": "/experiments/12c-12c/",
+      "sourceTextSha256": "3dcb7630eb9a525ef1ad6332837debdb228e34cd402ffcdbdc667ebbf8fe404e",
+      "sourceCharacters": 3530
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/131-3he-3he-2p-4he.html",
+      "route": "/experiments/3he-3he-past/",
+      "sourceTextSha256": "a075e20ed3a121f2bfb33e26dc34d264c8d32ff338d2bf840fd61999285468e0",
+      "sourceCharacters": 1146
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/136-d-3he-p-4he.html",
+      "route": "/experiments/luna-136/",
+      "sourceTextSha256": "d70946d3685c5d94ac04dcd559cbb52754c0d6df7e37cd8c5cb7b77a8bcad247",
+      "sourceCharacters": 2272
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/137-d-d-p-t.html",
+      "route": "/experiments/luna-137/",
+      "sourceTextSha256": "5deab0a838aab37a5437165aec0574f794d6f12fb7ddc403846ccf97964cc268",
+      "sourceCharacters": 1378
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=129.html",
+      "route": "/experiments/luna-129/",
+      "sourceTextSha256": "e150b1d1ad33f8a1887bd28a9c5718674d8d54d5814ab9f1d7cb9e01d94ab7a7",
+      "sourceCharacters": 576
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/132-3he-7be.html",
+      "route": "/experiments/luna-132/",
+      "sourceTextSha256": "0da8407c225cbc2e0000bb113ba6141c5deff56571429e0e1bd0ed71d918bbfe",
+      "sourceCharacters": 2571
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/133-14n-p-15o.html",
+      "route": "/experiments/luna-133/",
+      "sourceTextSha256": "e59d09c7ed5d8a003dfa38a2c0d699b027028658544865b86299d117be8d51a1",
+      "sourceCharacters": 4071
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/134-15n-p-16o.html",
+      "route": "/experiments/luna-134/",
+      "sourceTextSha256": "5cb734ee2d8fdda3bc4ffb926c52576f7e053d3c6c2318567fb9af76f4adaad0",
+      "sourceCharacters": 1728
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/135-25mg-p-26al.html",
+      "route": "/experiments/luna-135/",
+      "sourceTextSha256": "e83bb4bead57afcc006ce5d056cf6cb8677b960beccb479819c8f10b4afca440",
+      "sourceCharacters": 2072
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=122.html",
+      "route": "/experiments/luna-122/",
+      "sourceTextSha256": "80ec5208a36f03265b45849386b1f26ec1df7d154420533409b157841061ecbd",
+      "sourceCharacters": 1592
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=130.html",
+      "route": "/experiments/luna-130/",
+      "sourceTextSha256": "bd35e670f40b261f70cb2e5eaa009e60f6031ea5dac88cd0e4ed279a188b2164",
+      "sourceCharacters": 1784
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=124.html",
+      "route": "/experiments/luna-124/",
+      "sourceTextSha256": "d758d3374aa6970c3fce4a39fa7a16b6e93013f27de8f61da725450ec59528b1",
+      "sourceCharacters": 2399
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=123.html",
+      "route": "/experiments/22ne-pg-past/",
+      "sourceTextSha256": "7dbbea90006ae2373ed8878de27c772770c94182250a9b69f8f105f38e643000",
+      "sourceCharacters": 4439
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=125.html",
+      "route": "/experiments/luna-125/",
+      "sourceTextSha256": "972dc826b1fd0bc2ef62b43caa7f4153027e103d24c5ad80a6e8c14837e41015",
+      "sourceCharacters": 599
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/64-23na-p-g-24mg-working-groue.html",
+      "route": "/experiments/luna-64/",
+      "sourceTextSha256": "52e1bfaefd4b817d1648014a207e736e790c1d61b669531199c59a3eb899ee64",
+      "sourceCharacters": 3067
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/63-18o-p-g-19f-working-group.html",
+      "route": "/experiments/luna-63/",
+      "sourceTextSha256": "44ffb7d7bcaa18813a6ec0a1a0728299d79bd82e5c00913dda05a320065fd06b",
+      "sourceCharacters": 1061
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/60-2h-p-g-3he-wg.html",
+      "route": "/experiments/luna-60/",
+      "sourceTextSha256": "0fe1e846ed532e0e1c14617ed750babc63dd8ed4feb9be17b7fd4d7b52e7f3e0",
+      "sourceCharacters": 1699
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/86-6li-p-g-7be-working-group.html",
+      "route": "/experiments/luna-86/",
+      "sourceTextSha256": "229e60244d82f1fe72b7da51e13614223c7e4ef2b8ce2c2a83f985e973b33766",
+      "sourceCharacters": 1282
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/75-13c-a-n-16o-working-group.html",
+      "route": "/experiments/luna-75/",
+      "sourceTextSha256": "a8d88e6b2755240c61d41c693f31acc7c5c937ab85d870a2b651f94dfd1c600b",
+      "sourceCharacters": 1474
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/76-22ne-a-g-26mg-working-group.html",
+      "route": "/experiments/luna-76/",
+      "sourceTextSha256": "f725835847f963c707fcbc0284754d27a394d75e1beb324473eca1ae87ca4c4a",
+      "sourceCharacters": 3862
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/147-12c-13c-p-working-group.html",
+      "route": "/experiments/luna-147/",
+      "sourceTextSha256": "6eb0720d6de2707c0a232ed17cfbc7859a60ba1206809a75ffc00b9a8751542d",
+      "sourceCharacters": 1461
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=148.html",
+      "route": "/experiments/luna-148/",
+      "sourceTextSha256": "c7c4e1b2e3cb9dcdd2d73b440c3646d1a74749a7b3f91a0ca83b7815664081c8",
+      "sourceCharacters": 1267
+    },
+    {
+      "source": "index.php/new-about-us/ongoing-experiments?layout=edit&id=156.html",
+      "route": "/experiments/luna-156/",
+      "sourceTextSha256": "d2972bf07e3b34b274ad73a5486e09d12fa424eda9b704ef294d9c25eeadaf65",
+      "sourceCharacters": 1454
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/166-16o-p-g-17f.html",
+      "route": "/experiments/luna-166/",
+      "sourceTextSha256": "0cc71ef11c869710e7c9d0b73399302514e82e4edb99554feff2ca12852c507c",
+      "sourceCharacters": 1789
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/167-21ne-p-g-22na.html",
+      "route": "/experiments/luna-167/",
+      "sourceTextSha256": "81682f96e46466a0a08d8e6e932e78d1c2f9995850c31699f77ee0818af10eef",
+      "sourceCharacters": 2022
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments/2-uncategorised/163-14n-p-g-15o-at-400-kv.html",
+      "route": "/experiments/luna-163/",
+      "sourceTextSha256": "f6e28ef88e03bca3e584e497303d5a353bb648f0d69e0e162459042decca968e",
+      "sourceCharacters": 1739
+    },
+    {
+      "source": "index.php/new-about-us/past-experiments?layout=edit&id=165.html",
+      "route": "/experiments/14n-pg/",
+      "sourceTextSha256": "05bbafb50ce8d729cc60b5b1658413764a08b41e55a2cf416eb1bbb4476b5491",
+      "sourceCharacters": 2337
+    },
+    {
+      "source": "index.php/new-about-us.html",
+      "route": "/about/",
+      "sourceTextSha256": "95d05bf663da4115fd1082ddea1ea4c1759fd5c8296eadadf530ba38c0b72a3b",
+      "sourceCharacters": 1945
+    },
+    {
+      "source": "index.php/new-about-us/collaboration.html",
+      "route": "/collaboration/",
+      "sourceTextSha256": "44f4ab11e6bab681e694575726c82e1d89646fd3d84499e7e236d826c5245a31",
+      "sourceCharacters": 1575
+    },
+    {
+      "source": "index.php/new-about-us/future-experiments.html",
+      "route": "/experiments/future/",
+      "sourceTextSha256": "0485aa439a30ef63ab85c26e5f936150e12721a1be908e17c73f01a64afd2c17",
+      "sourceCharacters": 1654
+    },
+    {
+      "source": "index.php/scientific-output/publications.html",
+      "route": "/publications/",
+      "sourceTextSha256": "3f3b7ef5d155ac26733329b8b97a280ffbe0ecdb49c04e1637f0a5fe527a2c23",
+      "sourceCharacters": 54916
+    },
+    {
+      "source": "index.php/scientific-output/theses.html",
+      "route": "/theses/",
+      "sourceTextSha256": "dd0a2255b8efce73a0201c254ac88b5160b34b351a575ce3d64946053be20d27",
+      "sourceCharacters": 15407
+    },
+    {
+      "source": "index.php/network.html",
+      "route": "/network/",
+      "sourceTextSha256": "92406908af72c2f8ace0ca3685d26be4a4ef7741fe3cf3ca6ef8cc1515b5ee8d",
+      "sourceCharacters": 1095
+    },
+    {
+      "source": "index.php/new-work-with-us.html",
+      "route": "/work-with-us/",
+      "sourceTextSha256": "a4406a597176cacdd9c02b1e927a1b304d1b959b4813053b16d5696a38a31e65",
+      "sourceCharacters": 11831
+    },
+    {
+      "source": "index.php/new-about-us/2-uncategorised/138-50-kv-accelerator.html",
+      "route": "/resources/50-kv/",
+      "sourceTextSha256": "cb79151d3a187bbb7ae484c71067f373064e130a4d996183b2e4a23f7da12175",
+      "sourceCharacters": 393
+    },
+    {
+      "source": "index.php/new-about-us/2-uncategorised/139-400-kv-accelerator.html",
+      "route": "/resources/400-kv/",
+      "sourceTextSha256": "fe0327c23ffbe606d82187838aab5d83ac70d1e7047fccd43b8673eae0406e8b",
+      "sourceCharacters": 346
+    },
+    {
+      "source": "index.php/component/banners/click/42.html",
+      "route": "/resources/deuterium-nature/",
+      "sourceTextSha256": "e2428ef352a76bd4e92a0b9d55c957d8b07a423a72510c6f7994c0c8029284b9",
+      "sourceCharacters": 2098
+    },
+    {
+      "source": "index.php/19-latest-news/181-lunanova-news.html",
+      "route": "/news/181-lunanova-news/",
+      "sourceTextSha256": "9c5bdec2e49f3adc61c28e360b5e4203c28af6355f23e86dceb86d29d9689caa",
+      "sourceCharacters": 2032
+    },
+    {
+      "source": "index.php/19-latest-news/183-news-villi-prize.html",
+      "route": "/news/183-news-villi-prize/",
+      "sourceTextSha256": "98fe418a67769745bc594300ceaa2e904f8ea50b18e90f1563727387ee44021e",
+      "sourceCharacters": 293
+    },
+    {
+      "source": "index.php/19-latest-news/184-borse-di-studio-2026.html",
+      "route": "/news/184-borse-di-studio-2026/",
+      "sourceTextSha256": "1703fbe84344fdc6fbab4414ffb8d1445a5cd2c9509f6a806e82338d1ea95683",
+      "sourceCharacters": 516
+    },
+    {
+      "source": "index.php/scientific-output/reaction-rate-repository?layout=edit&id=188.html",
+      "route": "/reaction-rates/",
+      "sourceTextSha256": "b80f731d9bec9cfd000dced63ae03c09500a8240866e9207e628ba5a8ed1f941",
+      "sourceCharacters": 826
+    },
+    {
+      "source": "index.php/scientific-output/reaction-rate-repository?layout=edit&id=177.html",
+      "route": "/reaction-rates/",
+      "sourceTextSha256": "8f3106454d793a61c6a256504b058681454261bee49009191908e39840581982",
+      "sourceCharacters": 411
+    },
+    {
+      "source": "index.php/scientific-output/reaction-rate-repository?layout=edit&id=179.html",
+      "route": "/reaction-rates/",
+      "sourceTextSha256": "3726bce866414a497c704f09d7c52138fa408633b89eb36db4ca8d78cdf68b0b",
+      "sourceCharacters": 411
+    },
+    {
+      "source": "index.php/scientific-output/reaction-rate-repository?layout=edit&id=186.html",
+      "route": "/reaction-rates/",
+      "sourceTextSha256": "8b562407a3446b922962f3cb698b9552fa948d9d88950b26c6451316a0dc8629",
+      "sourceCharacters": 505
+    },
+    {
+      "source": "index.php/scientific-output/reaction-rate-repository?layout=edit&id=175.html",
+      "route": "/reaction-rates/",
+      "sourceTextSha256": "fedaf1b5d412a7efeb9b15ab34b677fb43034353549f90ff8ec329af88d8e93e",
+      "sourceCharacters": 430
+    }
+  ],
+  "missingLocalTargets": [],
+  "routes": {
+    "index.php/new-about-us.html": "/about/",
+    "index.php/new-about-us/collaboration.html": "/collaboration/",
+    "index.php/new-about-us/future-experiments.html": "/experiments/future/",
+    "index.php/scientific-output/publications.html": "/publications/",
+    "index.php/scientific-output/theses.html": "/theses/",
+    "index.php/network.html": "/network/",
+    "index.php/new-work-with-us.html": "/work-with-us/",
+    "index.php/new-about-us/2-uncategorised/138-50-kv-accelerator.html": "/resources/50-kv/",
+    "index.php/new-about-us/2-uncategorised/139-400-kv-accelerator.html": "/resources/400-kv/",
+    "index.php/component/banners/click/42.html": "/resources/deuterium-nature/",
+    "index.html": "/",
+    "index.php.html": "/",
+    "index.php/scientific-output.html": "/publications/",
+    "index.php/new-about-us/past-experiments.html": "/experiments/#past",
+    "index.php/new-about-us/ongoing-experiments.html": "/experiments/#ongoing",
+    "index.php/scientific-output/reaction-rate-repository.html": "/reaction-rates/",
+    "index.php/new-about-us/ongoing-experiments?layout=edit&id=169.html": "/experiments/19f-pg/",
+    "index.php/new-about-us/ongoing-experiments?layout=edit&id=170.html": "/experiments/24mg-pg/",
+    "index.php/new-about-us/ongoing-experiments?layout=edit&id=172.html": "/experiments/10b-alpha/",
+    "index.php/new-about-us/ongoing-experiments/2-uncategorised/164-22ne-a-n-25mg.html": "/experiments/shades/",
+    "index.php/new-about-us/ongoing-experiments?layout=edit&id=171.html": "/experiments/12c-12c/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/131-3he-3he-2p-4he.html": "/experiments/3he-3he-past/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/136-d-3he-p-4he.html": "/experiments/luna-136/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/137-d-d-p-t.html": "/experiments/luna-137/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=129.html": "/experiments/luna-129/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/132-3he-7be.html": "/experiments/luna-132/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/133-14n-p-15o.html": "/experiments/luna-133/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/134-15n-p-16o.html": "/experiments/luna-134/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/135-25mg-p-26al.html": "/experiments/luna-135/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=122.html": "/experiments/luna-122/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=130.html": "/experiments/luna-130/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=124.html": "/experiments/luna-124/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=123.html": "/experiments/22ne-pg-past/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=125.html": "/experiments/luna-125/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/64-23na-p-g-24mg-working-groue.html": "/experiments/luna-64/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/63-18o-p-g-19f-working-group.html": "/experiments/luna-63/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/60-2h-p-g-3he-wg.html": "/experiments/luna-60/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/86-6li-p-g-7be-working-group.html": "/experiments/luna-86/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/75-13c-a-n-16o-working-group.html": "/experiments/luna-75/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/76-22ne-a-g-26mg-working-group.html": "/experiments/luna-76/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/147-12c-13c-p-working-group.html": "/experiments/luna-147/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=148.html": "/experiments/luna-148/",
+    "index.php/new-about-us/ongoing-experiments?layout=edit&id=156.html": "/experiments/luna-156/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/166-16o-p-g-17f.html": "/experiments/luna-166/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/167-21ne-p-g-22na.html": "/experiments/luna-167/",
+    "index.php/new-about-us/past-experiments/2-uncategorised/163-14n-p-g-15o-at-400-kv.html": "/experiments/luna-163/",
+    "index.php/new-about-us/past-experiments?layout=edit&id=165.html": "/experiments/14n-pg/",
+    "index.php/new-about-us/2-uncategorised/131-3he-3he-2p-4he.html": "/experiments/3he-3he-past/",
+    "index.php/new-about-us/2-uncategorised/129-2h-p-g-3he.html": "/experiments/luna-129/",
+    "index.php/19-latest-news/181-lunanova-news.html": "/news/181-lunanova-news/",
+    "index.php/19-latest-news/183-news-villi-prize.html": "/news/183-news-villi-prize/",
+    "index.php/19-latest-news/184-borse-di-studio-2026.html": "/news/184-borse-di-studio-2026/",
+    "index.php/19-latest-news/184-borse-di-studio-2026?layout=edit.html": "/news/184-borse-di-studio-2026/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=175.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=180.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=179.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=178.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=186.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=173.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=187.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=188.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=185.html": "/reaction-rates/",
+    "index.php/scientific-output/reaction-rate-repository?layout=edit&id=177.html": "/reaction-rates/"
+  }
+}

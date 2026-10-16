@@ -1,71 +1,75 @@
-"use client"
-
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import Image from "next/image"
-import { ModeToggle } from "@/components/ui/dark-mode-toggle"
-import { useTheme } from "next-themes"
-
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { asset } from "@/lib/paths";
+const links = [
+  ["About", "/about/"],
+  ["Experiments", "/experiments/"],
+  ["Reaction rates", "/reaction-rates/"],
+  ["Publications", "/publications/"],
+  ["News", "/news/"],
+];
 export default function Header() {
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-
+  const [open, setOpen] = useState(false);
+  const path = usePathname();
   return (
-    <header className="background shadow-sm top-0 left-0 w-full z-30">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-            <Link href="/">
-              <Image src={useTheme().resolvedTheme === "dark" ? "/logo_v5h_dark.png" : "/logo_v5h.png"} alt="LUNA" width={100} height={20} />
+    <header className="site-header">
+      <div className="shell header-inner">
+        <Link
+          href="/"
+          className="brand"
+          aria-label="LUNA home"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src={asset("/logo_v5h.png")}
+            alt="LUNA"
+            width="108"
+            height="43"
+          />
+          <span>
+            Laboratory for Underground
+            <br />
+            Nuclear Astrophysics
+          </span>
+        </Link>
+        <button
+          className="menu-toggle"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls="main-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+        >
+          {open ? <X /> : <Menu />}
+        </button>
+        <nav
+          id="main-nav"
+          aria-label="Main navigation"
+          className={open ? "nav-links is-open" : "nav-links"}
+        >
+          {links.map(([name, href]) => (
+            <Link
+              key={href}
+              href={href}
+              aria-current={
+                path.startsWith(href.replace(/\/$/, "")) ? "page" : undefined
+              }
+              onClick={() => setOpen(false)}
+            >
+              {name}
             </Link>
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleMenu}>
-              {isMenuOpen ? <X /> : <Menu />}
-            </Button>
-          </div>
-          <ul
-            className={`md:flex md:items-center md:space-x-4 ${isMenuOpen ? "block bg-white dark:bg-black/90" : "hidden"} absolute md:relative top-16 left-0 right-0 md:top-0 p-4 md:p-0 shadow-md md:shadow-none z-30`}
+          ))}
+          <Link
+            className="nav-contact"
+            href="/contact/"
+            onClick={() => setOpen(false)}
           >
-            <li>
-              <Link href="/" className="block py-2 md:py-0 primary hover:text-red-800">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="block py-2 md:py-0 primary hover:text-red-800">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/experiments" className="block py-2 md:py-0 primary hover:text-red-800">
-                Experiments
-              </Link>
-            </li>
-            <li>
-              <Link href="/publications" className="block py-2 md:py-0 primary hover:text-red-800">
-                Publications
-              </Link>
-            </li>
-            <li>
-              <Link href="/news" className="block py-2 md:py-0 primary hover:text-red-800">
-                News
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="block py-2 md:py-0 primary hover:text-red-800">
-                Contact
-              </Link>
-            </li>
-            <li>
-              < ModeToggle />
-            </li>
-          </ul>
-        </div>
-      </nav>
+            Contact <ArrowUpRight size={14} />
+          </Link>
+        </nav>
+      </div>
     </header>
-  )
+  );
 }
-

@@ -1,46 +1,34 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import Header from "./components/header"
-import Footer from "./components/footer"
-import type React from "react" // Added import for React
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { ThemeProvider } from "@/components/theme-provider"
-
-const inter = Inter({ subsets: ["latin"] })
-
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import { asset } from "@/lib/site";
 export const metadata: Metadata = {
-  title: "The LUNA Collaboration",
-  description: "Exploring the stars from deep underground",
-}
-
+  title: {
+    default: "LUNA · Laboratory for Underground Nuclear Astrophysics",
+    template: "%s · LUNA",
+  },
+  description:
+    "Nuclear astrophysics at the Gran Sasso National Laboratories. Explore the LUNA experiments, publications and thermonuclear reaction rates.",
+};
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
+        <link rel="stylesheet" href={asset("/vendor/katex/katex.min.css")} />
       </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
-        <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
       </body>
     </html>
-
-  )
+  );
 }
-

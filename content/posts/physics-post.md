@@ -6,6 +6,6 @@ excerpt: "Understanding thermonuclear reaction in the stars."
 coverImage: /images/posts/Sun_evolution.jpg
 ---
 
-# Explore here the physics of stellar reaction
+This science story is in preparation.
 
-[Rest of the article content]
+Explore [the science behind LUNA](/about/), [our experiments](/experiments/) or the [reaction-rate explorer](/reaction-rates/) in the meantime.

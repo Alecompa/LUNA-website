@@ -1,55 +1,52 @@
-"use client"
-
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
+import Link from "next/link";
+import PageHeading from "../components/page-heading";
+export const metadata = { title: "Contact" };
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prevState) => ({ ...prevState, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your server
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({ name: "", email: "", message: "" })
-  }
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <Input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email
-          </label>
-          <Input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-            Message
-          </label>
-          <Textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} required />
-        </div>
-        <Button type="submit">Send Message</Button>
-      </form>
-    </div>
-  )
+    <>
+      <PageHeading title="Contact LUNA" eyebrow="COLLABORATION" />
+      <div className="shell contact-grid">
+        <section className="contact-block">
+          <p className="eyebrow">SCIENTIFIC ENQUIRIES</p>
+          <h2>Alba Formicola</h2>
+          <p>
+            LUNA spokesperson
+            <br />
+            INFN Roma, Italy
+          </p>
+          <a href="mailto:alba.formicola@roma1.infn.it">
+            alba.formicola@roma1.infn.it ↗
+          </a>
+        </section>
+        <section className="contact-block">
+          <p className="eyebrow">RESEARCH & STUDY</p>
+          <h2>Join the programme</h2>
+          <p>
+            Explore thesis projects, doctoral programmes and postdoctoral
+            fellowships, with the relevant scientific contacts.
+          </p>
+          <Link href="/work-with-us/">Research opportunities →</Link>
+        </section>
+        <section className="contact-block">
+          <p className="eyebrow">THE LABORATORY</p>
+          <h2>Gran Sasso National Laboratories</h2>
+          <p>
+            INFN · Laboratori Nazionali del Gran Sasso
+            <br />
+            Assergi, L’Aquila, Italy
+          </p>
+          <a href="https://www.lngs.infn.it/">Visit the LNGS website ↗</a>
+        </section>
+        <section className="contact-block">
+          <p className="eyebrow">INSTITUTIONS</p>
+          <h2>An international collaboration</h2>
+          <p>
+            Find the participating universities, laboratories and research
+            groups.
+          </p>
+          <Link href="/collaboration/">People & institutions →</Link>
+        </section>
+      </div>
+    </>
+  );
 }
-
