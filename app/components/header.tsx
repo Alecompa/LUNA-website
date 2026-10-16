@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { asset } from "@/lib/paths";
 const links = [
   ["About", "/about/"],
@@ -10,6 +10,7 @@ const links = [
   ["Reaction rates", "/reaction-rates/"],
   ["Publications", "/publications/"],
   ["News", "/news/"],
+  ["Contact", "/contact/"],
 ];
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -61,13 +62,6 @@ export default function Header() {
               {name}
             </Link>
           ))}
-          <Link
-            className="nav-contact"
-            href="/contact/"
-            onClick={() => setOpen(false)}
-          >
-            Contact <ArrowUpRight size={14} />
-          </Link>
         </nav>
       </div>
     </header>
