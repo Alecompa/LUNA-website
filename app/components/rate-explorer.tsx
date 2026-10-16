@@ -197,7 +197,7 @@ export default function RateExplorer({
               cx={x(row[0])}
               cy={y(row[4])}
               r="5"
-              fill="#b52d28"
+              fill="var(--red)"
               stroke="white"
               strokeWidth="2"
             />
