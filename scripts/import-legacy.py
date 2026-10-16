@@ -163,3 +163,5 @@ out={'sourceRepository':'https://github.com/mariannavagnoni/LUNAweb','sourceComm
 (dest/'content/imported/legacy.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
 (dest/'content/imported/manifest.json').write_text(json.dumps({'commit':source_commit,'pages':manifest,'missingLocalTargets':issues,'routes':routes},ensure_ascii=False,indent=2)+'\n')
 print(f'Imported {len(experiments)} experiments, {len(news)} news, {len(pages)} pages, {len(rates)} rates. Missing local targets: {len(issues)}')
+
+shutil.copy2(dest/'node_modules/katex/LICENSE',dest/'public/vendor/katex/LICENSE')
