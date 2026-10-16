@@ -10,21 +10,23 @@
   --popover-foreground: 0.00 0.00% 13.33%;
   --primary: 356.25 57.66% 43.53%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 38 17% 93%;
+  --secondary: 0 2.56% 92.35%;
   --secondary-foreground: 0.00 0.00% 13.33%;
-  --muted: 38 17% 93%;
+  --muted: 0 2.56% 92.35%;
   --muted-foreground: 0 0% 40%;
-  --accent: 38 17% 93%;
+  --accent: 0 2.56% 92.35%;
   --accent-foreground: 0.00 0.00% 13.33%;
   --destructive: 0 70% 45%;
   --destructive-foreground: 0 0% 100%;
   --border: 35 13% 85%;
   --input: 35 13% 85%;
   --ring: 356.25 57.66% 43.53%;
-  --radius: 0.35rem;
+  --radius: 0.5rem;
+  --panel-radius: 0.75rem;
   --ink: #222222;
   --red: #af2f37;
   --paper: #f7f6f6;
+  --panel: #ecebeb;
   --line: #dedfd9;
   --muted-ink: #666666;
 }
@@ -255,7 +257,7 @@ sup {
   font-weight: 600;
   border: 1px solid transparent;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: var(--radius);
   min-height: 48px;
 }
 .button-red {
@@ -281,7 +283,7 @@ sup {
   border-color: var(--line);
 }
 .button-outline:hover {
-  background: #efeee9;
+  background: var(--panel);
 }
 .text-link {
   font-size: 13px;
@@ -295,7 +297,7 @@ sup {
 }
 .research-strip {
   border-bottom: 1px solid var(--line);
-  background: #f0efea;
+  background: var(--panel);
 }
 .research-strip .shell {
   display: grid;
@@ -336,7 +338,7 @@ sup {
   color: #5c5c5c;
 }
 .section-tint {
-  background: #eeeee8;
+  background: var(--panel);
 }
 .section-pad {
   padding-block: 80px;
@@ -505,7 +507,7 @@ sup {
 .news-image {
   height: 215px;
   overflow: hidden;
-  background: #e5e5df;
+  background: var(--panel);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,7 +519,7 @@ sup {
   object-fit: cover;
 }
 .news-image-0 {
-  background: #ebe1d4;
+  background: var(--panel);
   position: relative;
   align-items: start;
   padding: 30px;
@@ -802,8 +804,8 @@ sup {
   font-size: 24px;
 }
 .notice {
-  background: #f0ece3;
-  border-left: 3px solid #bba785;
+  background: var(--panel);
+  border-left: 3px solid var(--line);
   padding: 18px 22px;
   font-size: 13px;
   line-height: 1.7;
@@ -838,7 +840,7 @@ sup {
 .filter-tabs button {
   padding: 10px 17px;
   font-size: 12px;
-  border-radius: 2px;
+  border-radius: var(--radius);
   color: #5c5c5c;
 }
 .filter-tabs button[aria-pressed="true"] {
@@ -846,7 +848,7 @@ sup {
   color: white;
 }
 .filter-tabs button:hover {
-  background: #e9e8e2;
+  background: var(--panel);
 }
 .filter-tabs button[aria-pressed="true"]:hover {
   background: #3b3b3b;
@@ -855,7 +857,7 @@ sup {
   border: 1px solid var(--line);
   background: #fff;
   padding: 11px 14px;
-  border-radius: 2px;
+  border-radius: var(--radius);
   font-size: 13px;
   width: 300px;
   max-width: 100%;
@@ -914,7 +916,7 @@ sup {
 .empty-state {
   padding: 45px;
   text-align: center;
-  background: #efeee8;
+  background: var(--panel);
   grid-column: 1/-1;
 }
 .detail-meta {
@@ -942,7 +944,7 @@ sup {
   padding: 10px 14px;
   min-height: 43px;
   font-size: 13px;
-  border-radius: 2px;
+  border-radius: var(--radius);
 }
 .archive-year {
   display: grid;
@@ -990,7 +992,7 @@ sup {
 }
 .contact-block {
   padding: 35px;
-  background: #eeeee8;
+  background: var(--panel);
 }
 .contact-block h2 {
   font-size: 23px;
@@ -1163,7 +1165,7 @@ sup {
 .rate-method {
   margin-top: 30px;
   padding: 28px;
-  background: #efeee8;
+  background: var(--panel);
 }
 .rate-method h3 {
   font-size: 17px;
@@ -1211,10 +1213,10 @@ sup {
 .rate-table th {
   position: sticky;
   top: 0;
-  background: #eee;
+  background: var(--panel);
 }
 .rate-table tr[aria-selected="true"] {
-  background: #f8e7df;
+  background: var(--panel);
 }
 .unavailable-rates {
   margin-top: 28px;
@@ -1231,6 +1233,31 @@ sup {
   padding: 8px 0;
   font-size: 14px;
 }
+/* Shared corners for content panels, media, and interactive controls. */
+.experiment-feature,
+.news-image,
+.rate-preview,
+.article-hero,
+.community > img,
+.prose img,
+.notice,
+.experiment-card,
+.empty-state,
+.archive-overview,
+.contact-block,
+.rate-panel,
+.rate-method,
+.table-details,
+.table-scroll {
+  border-radius: var(--panel-radius);
+}
+.rate-sidebar button,
+.tag,
+.skip-link,
+textarea {
+  border-radius: var(--radius);
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
