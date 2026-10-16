@@ -1251,6 +1251,91 @@ textarea {
   border-radius: var(--radius);
 }
 
+.network-page {
+  padding-bottom: 80px;
+}
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.network-card {
+  background: var(--panel);
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 0;
+}
+.network-logo {
+  height: 105px;
+  padding: 16px 24px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.network-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 180px;
+  object-fit: contain;
+}
+.network-card-body {
+  padding: 18px 24px 28px;
+}
+.network-logo img.network-logo-square {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  object-position: center;
+}
+.network-scope {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+}
+.network-card h2 {
+  font: 400 28px/1.2 Georgia, serif;
+  margin: 10px 0 12px;
+}
+.network-summary {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.network-details {
+  margin-top: 18px;
+  font-size: 12px;
+}
+.network-details summary {
+  cursor: pointer;
+  padding: 8px 0;
+  color: var(--muted-ink);
+}
+.network-details .prose {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.network-details .prose p:last-child {
+  margin-bottom: 0;
+}
+.network-link {
+  display: inline-block;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 24px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 900px) {
+  .network-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

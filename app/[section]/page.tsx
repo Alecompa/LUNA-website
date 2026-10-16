@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import PageHeading from "../components/page-heading";
 import LegacyContent from "../components/legacy-content";
 import ArchiveBrowser from "../components/archive-browser";
+import NetworkCards from "../components/network-cards";
 import { legacy, asset } from "@/lib/site";
 const sections = [
   "collaboration",
@@ -36,6 +37,25 @@ export default async function Section({
   const { section } = await params;
   if (!sections.includes(section as (typeof sections)[number])) notFound();
   const key = section as (typeof sections)[number];
+  if (key === "network") {
+    return (
+      <>
+        <PageHeading
+          title={titles.network}
+          eyebrow="COLLABORATION"
+          description="Connecting nuclear astrophysics research in Italy, across Europe, and worldwide."
+        >
+          <nav className="subnav" aria-label="Related collaboration pages">
+            {sections.filter((s) => s !== "network").map((s) => (
+              <Link href={`/${s}/`} key={s}>{titles[s]}</Link>
+            ))}
+            <Link href="/contact/">Contact</Link>
+          </nav>
+        </PageHeading>
+        <div className="shell network-page"><NetworkCards /></div>
+      </>
+    );
+  }
   return (
     <>
       <PageHeading
