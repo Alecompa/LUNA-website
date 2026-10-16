@@ -277,7 +277,7 @@ export default function RateExplorer({
               href={asset(`/data/rates/${id}.zip`)}
               download
             >
-              Original ZIP <Download size={14} />
+              ZIP <Download size={14} />
             </a>
           </div>
         </section>
@@ -327,16 +327,16 @@ export default function RateExplorer({
             )}
           />
           <p className="rate-notes">
-            Method descriptions and references are preserved from the source
-            archive. Consult the cited publication for definitions and
+            Method descriptions and references accompany each dataset.
+            Consult the cited publication for definitions and
             applicability.
           </p>
         </section>
         <details className="table-details">
-          <summary>All 13 reactions in the source catalogue</summary>
+          <summary>All {rates.length + unavailable.length} reactions in the catalogue</summary>
           <p className="rate-notes">
-            Interactive data are available for the five reactions above. The
-            following eight entries were listed without a numerical table:
+            Interactive data are available for {rates.length} reactions. The
+            following {unavailable.length} entries were listed without a numerical table:
           </p>
           <div className="flex flex-wrap gap-4 mt-4 text-sm">
             {unavailable.map((r) => (

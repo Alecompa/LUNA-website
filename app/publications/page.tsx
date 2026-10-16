@@ -1,7 +1,7 @@
 import Link from "next/link";
 import PageHeading from "../components/page-heading";
 import PublicationBrowser from "../components/publication-browser";
-import { legacy } from "@/lib/site";
+import { legacy, archiveUpdated } from "@/lib/site";
 export const metadata = { title: "Publications" };
 export default function Publications() {
   return (
@@ -12,7 +12,7 @@ export default function Publications() {
         description="The LUNA publication archive, with full author lists and links to the original research."
       >
         <div className="subnav">
-          <span>Archive updated June 2026</span>
+          <span>Archive updated {archiveUpdated}</span>
           <Link href="/theses/">Theses →</Link>
           <Link href="/reaction-rates/">Reaction rates →</Link>
           <Link href="/resources/deuterium-nature/">

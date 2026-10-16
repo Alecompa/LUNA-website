@@ -4,7 +4,14 @@ import crypto from "node:crypto";
 const data = JSON.parse(
   fs.readFileSync("content/imported/legacy.json", "utf8"),
 );
+const updates = JSON.parse(fs.readFileSync("content/updates.json", "utf8"));
 assert.equal(data.pages.publications.records.length, 97);
+assert.equal(updates.publications.length, 1);
+assert(updates.publications[0].parts[0].includes("https://doi.org/10.1103/tclf-b44m"));
+assert.equal(updates.rates.length, 1);
+assert.equal(updates.rates[0].id, "16Opg17F");
+const rates = [...data.rates, ...updates.rates];
+assert.equal(new Set(rates.map(r => r.id)).size, rates.length);
 assert.equal(data.experiments.length, 31);
 assert.equal(data.experiments.filter((e) => e.status === "ongoing").length, 5);
 assert.equal(data.experiments.filter((e) => e.status === "past").length, 26);
@@ -19,8 +26,9 @@ const counts = {
   "13Cpg14N": 54,
   "13Can16O": 78,
   "17Opg18F": 99,
+  "16Opg17F": 51,
 };
-for (const rate of data.rates) {
+for (const rate of rates) {
   const raw = fs.readFileSync(`public/data/rates/${rate.id}.txt`);
   assert.equal(
     crypto.createHash("sha256").update(raw).digest("hex"),
@@ -58,7 +66,7 @@ const contents = [
   ...Object.values(data.pages),
   ...data.experiments,
   ...data.news,
-  ...data.rates,
+  ...rates,
 ];
 for (const item of contents) {
   assert(!/<script|<form| on\w+=|javascript:/i.test(item.html));
@@ -75,5 +83,5 @@ assert(
 );
 assert(data.pages["work-with-us"].html.includes("mailto:m.aliotta@ed.ac.uk"));
 console.log(
-  "Content checks passed: 31 experiments, 5 rates / 331 rows, 8 catalogue-only entries, local assets, contact links and original-data hashes.",
+  "Content checks passed: 31 experiments, 6 rates / 382 rows, 8 catalogue-only entries, local assets, contact links and original-data hashes.",
 );

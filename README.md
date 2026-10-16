@@ -54,6 +54,7 @@ Keep the existing GitHub-connected project. Use the Next.js preset, `npm run bui
 
 - `content/imported/legacy.json`: all imported scientific content, experiment statuses, original references and five numerical rate tables.
 - `content/imported/manifest.json`: pinned source commit, source-to-route map, content fingerprints and local-link audit.
+- `content/updates.json`: publication and reaction-rate additions after the pinned legacy import. The October 2026 ¹⁶O(p,γ)¹⁷F table was supplied as `16Opg17N.txt`; the text download preserves its bytes and the ZIP preserves its original filename.
 - `content/experiments/`: existing Markdown descriptions, retained as additional background in the corresponding experiment pages.
 - `content/articles/`, `content/posts/`: existing news and science stories. The unfinished science story is visibly marked as in preparation.
 - `public/legacy/images/`: assets and original downloads from the backup.
@@ -78,6 +79,6 @@ npm run build
 npm run check:export
 ```
 
-Content checks cover 31 experiment records, status assignment, all 331 supplied rate rows, numerical column ordering, original-data hashes, CSV equality, public contacts and local assets. Export checks scan every generated HTML file, including subdirectory prefixes. Run `npm run lint` separately when needed.
+Content checks cover 31 experiment records, status assignment, all 382 supplied rate rows, numerical column ordering, original-data hashes, CSV equality, public contacts and local assets. Export checks scan every generated HTML file, including subdirectory prefixes. Run `npm run lint` separately when needed.
 
 The static build uses ordinary `<img>` elements intentionally, so it does not depend on a Next.js image-optimization service. Existing Next image components are configured as unoptimized.
