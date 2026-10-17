@@ -91,6 +91,8 @@ export function Fig({
         src={asset(figure.src)}
         alt={figure.caption}
         caption={figure.caption}
+        width={figure.w}
+        height={figure.h}
         className={`fig-frame ${cover ? "cover" : figure.kind}`}
       />
       <figcaption>

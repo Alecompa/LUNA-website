@@ -42,35 +42,38 @@ export const stageById = (id: StageId) =>
 // --------------------------------------------------------------- figures
 export type Figure = {
   src: string;
+  /** Native pixel size, so the layout reserves space before the image loads. */
+  w: number;
+  h: number;
   caption: string;
   source?: ReviewKey | "archive";
   fig?: string;
   kind: "plot" | "photo" | "diagram";
 };
-const f = (src: string, caption: string, kind: Figure["kind"], source?: Figure["source"], fig?: string): Figure => ({ src, caption, kind, source, fig });
+const f = (src: string, w: number, h: number, caption: string, kind: Figure["kind"], source?: Figure["source"], fig?: string): Figure => ({ src, w, h, caption, kind, source, fig });
 export const FIGURES = {
-  network: f("/media/figures/pp-cno-network.jpg", "Hydrogen burning: the three p–p chains and the CNO cycles.", "diagram", "oxford", "Fig. 1"),
-  gamow: f("/media/figures/gamow-peak.jpg", "The Gamow peak for ⁶Li(p,γ)⁷Be at 5 MK: the product of the Maxwell–Boltzmann tail and the tunnelling probability.", "plot", "oxford", "Fig. 2"),
-  gamowCurves: f("/media/figures/gamow-curves.webp", "The Gamow peak (green) at 15 MK: Maxwell–Boltzmann distribution times tunnelling probability. For heavier nuclei, p+¹⁴N and α+¹²C, it shifts to higher energy and shrinks by orders of magnitude.", "plot", "annrev", "Fig. 1"),
-  depth: f("/media/figures/depth-flux.jpg", "Cosmic-ray fluxes versus depth. Under 1.4 km of rock, Gran Sasso suppresses the muon flux by about six orders of magnitude.", "plot", "oxford", "Fig. 3"),
-  luna400: f("/media/figures/luna400-setup.jpg", "The LUNA 400 kV accelerator with its solid-target (red) and gas-target (blue) beamlines.", "photo", "oxford", "Fig. 4"),
-  beamlines: f("/media/figures/luna400-beamlines.webp", "Inside the LUNA 400 kV hall.", "photo", "annrev", "Fig. 2"),
-  carbon: f("/media/figures/carbon-sfactors.jpg", "S-factors of ¹²C+p and ¹³C+p from LUNA and Felsenkeller, with the Gamow windows of red-giant and AGB burning.", "plot", "oxford", "Fig. 8"),
-  bgo: f("/media/figures/bgo-setup.jpg", "The high-efficiency BGO setup used for the 64.5 keV resonance in ¹⁷O(p,γ)¹⁸F.", "diagram", "oxford", "Fig. 9"),
-  nenamgal: f("/media/figures/nena-mgal-cycles.jpg", "The NeNa (light) and MgAl (dark) cycles.", "diagram", "oxford", "Fig. 10"),
-  neon: f("/media/figures/neon-rates.jpg", "LUNA rates for ²⁰Ne(p,γ)²¹Na (left) and ²¹Ne(p,γ)²²Na (right) relative to Iliadis et al. (2010); shaded bands are 1σ.", "plot", "oxford", "Fig. 11"),
-  particles: f("/media/figures/particle-array.jpg", "The silicon particle-detector array at LUNA 400 kV, seen from the target position.", "photo", "oxford", "Fig. 12"),
-  alratio: f("/media/figures/al27-ratio.jpg", "Rate ratio ²⁷Al(p,γ)²⁸Si / ²⁷Al(p,α)²⁴Mg and its uncertainty: up to six orders of magnitude.", "plot", "oxford", "Fig. 13"),
-  n14bellotti: f("/media/figures/n14-bellotti-setup.jpg", "Angular-distribution setup for ¹⁴N(p,γ)¹⁵O at the Bellotti Ion Beam Facility.", "photo", "oxford", "Fig. 14"),
-  c12c12: f("/media/figures/c12c12-setup.jpg", "The ¹²C+¹²C setup at the Bellotti facility, shielding open.", "photo", "oxford", "Fig. 15"),
-  nealpha: f("/media/figures/ne22-alpha-setup.jpg", "The ²²Ne+α setup at the Bellotti facility.", "photo", "oxford", "Fig. 16"),
-  hpgeBackground: f("/media/figures/background-hpge.webp", "γ-ray background in a HPGe detector: surface laboratory (black) versus shielded at LUNA (red).", "plot", "annrev", "Fig. 3a"),
-  dpg: f("/media/figures/dpg-sfactor.webp", "S-factor of D(p,γ)³He: LUNA data (red) against the literature.", "plot", "annrev", "Fig. 3b"),
-  neutronBackground: f("/media/figures/neutron-background.webp", "Neutron-counter background on the surface and underground, for aluminium and steel housings.", "plot", "annrev", "Fig. 5a"),
-  c13an: f("/media/figures/c13an-sfactor.webp", "S-factor of ¹³C(α,n)¹⁶O: the LUNA points reach into the s-process Gamow window.", "plot", "annrev", "Fig. 5b"),
-  baryon: f("/legacy/images/News/plot-1D.png", "Likelihood of the baryon density with (red) and without the LUNA rate, against CMB constraints.", "plot", "archive"),
-  dpgNature: f("/legacy/images/News/Sfactor_web.png", "S-factor of D(p,γ)³He with the new LUNA data and best fit.", "plot", "archive"),
-  lunaMv: f("/media/photos/luna-mv-render.webp", "Design of the accelerator hall for the 3.5 MV machine in Hall B.", "diagram", "archive"),
+  network: f("/media/figures/pp-cno-network.jpg", 520, 203, "Hydrogen burning: the three p–p chains and the CNO cycles.", "diagram", "oxford", "Fig. 1"),
+  gamow: f("/media/figures/gamow-peak.jpg", 520, 313, "The Gamow peak for ⁶Li(p,γ)⁷Be at 5 MK: the product of the Maxwell–Boltzmann tail and the tunnelling probability.", "plot", "oxford", "Fig. 2"),
+  gamowCurves: f("/media/figures/gamow-curves.webp", 2401, 1699, "The Gamow peak (green) at 15 MK: Maxwell–Boltzmann distribution times tunnelling probability. For heavier nuclei, p+¹⁴N and α+¹²C, it shifts to higher energy and shrinks by orders of magnitude.", "plot", "annrev", "Fig. 1"),
+  depth: f("/media/figures/depth-flux.jpg", 520, 247, "Cosmic-ray fluxes versus depth. Under 1.4 km of rock, Gran Sasso suppresses the muon flux by about six orders of magnitude.", "plot", "oxford", "Fig. 3"),
+  luna400: f("/media/figures/luna400-setup.jpg", 520, 540, "The LUNA 400 kV accelerator with its solid-target (red) and gas-target (blue) beamlines.", "photo", "oxford", "Fig. 4"),
+  beamlines: f("/media/figures/luna400-beamlines.webp", 1939, 1354, "Inside the LUNA 400 kV hall.", "photo", "annrev", "Fig. 2"),
+  carbon: f("/media/figures/carbon-sfactors.jpg", 520, 156, "S-factors of ¹²C+p and ¹³C+p from LUNA and Felsenkeller, with the Gamow windows of red-giant and AGB burning.", "plot", "oxford", "Fig. 8"),
+  bgo: f("/media/figures/bgo-setup.jpg", 520, 264, "The high-efficiency BGO setup used for the 64.5 keV resonance in ¹⁷O(p,γ)¹⁸F.", "diagram", "oxford", "Fig. 9"),
+  nenamgal: f("/media/figures/nena-mgal-cycles.jpg", 520, 417, "The NeNa (light) and MgAl (dark) cycles.", "diagram", "oxford", "Fig. 10"),
+  neon: f("/media/figures/neon-rates.jpg", 520, 155, "LUNA rates for ²⁰Ne(p,γ)²¹Na (left) and ²¹Ne(p,γ)²²Na (right) relative to Iliadis et al. (2010); shaded bands are 1σ.", "plot", "oxford", "Fig. 11"),
+  particles: f("/media/figures/particle-array.jpg", 414, 550, "The silicon particle-detector array at LUNA 400 kV, seen from the target position.", "photo", "oxford", "Fig. 12"),
+  alratio: f("/media/figures/al27-ratio.jpg", 520, 362, "Rate ratio ²⁷Al(p,γ)²⁸Si / ²⁷Al(p,α)²⁴Mg and its uncertainty: up to six orders of magnitude.", "plot", "oxford", "Fig. 13"),
+  n14bellotti: f("/media/figures/n14-bellotti-setup.jpg", 500, 376, "Angular-distribution setup for ¹⁴N(p,γ)¹⁵O at the Bellotti Ion Beam Facility.", "photo", "oxford", "Fig. 14"),
+  c12c12: f("/media/figures/c12c12-setup.jpg", 520, 321, "The ¹²C+¹²C setup at the Bellotti facility, shielding open.", "photo", "oxford", "Fig. 15"),
+  nealpha: f("/media/figures/ne22-alpha-setup.jpg", 520, 390, "The ²²Ne+α setup at the Bellotti facility.", "photo", "oxford", "Fig. 16"),
+  hpgeBackground: f("/media/figures/background-hpge.webp", 2401, 1017, "γ-ray background in a HPGe detector: surface laboratory (black) versus shielded at LUNA (red).", "plot", "annrev", "Fig. 3a"),
+  dpg: f("/media/figures/dpg-sfactor.webp", 2401, 1179, "S-factor of D(p,γ)³He: LUNA data (red) against the literature.", "plot", "annrev", "Fig. 3b"),
+  neutronBackground: f("/media/figures/neutron-background.webp", 2401, 1019, "Neutron-counter background on the surface and underground, for aluminium and steel housings.", "plot", "annrev", "Fig. 5a"),
+  c13an: f("/media/figures/c13an-sfactor.webp", 2401, 1123, "S-factor of ¹³C(α,n)¹⁶O: the LUNA points reach into the s-process Gamow window.", "plot", "annrev", "Fig. 5b"),
+  baryon: f("/legacy/images/News/plot-1D.png", 871, 619, "Likelihood of the baryon density with (red) and without the LUNA rate, against CMB constraints.", "plot", "archive"),
+  dpgNature: f("/legacy/images/News/Sfactor_web.png", 600, 420, "S-factor of D(p,γ)³He with the new LUNA data and best fit.", "plot", "archive"),
+  lunaMv: f("/media/photos/luna-mv-render.webp", 1261, 918, "Design of the accelerator hall for the 3.5 MV machine in Hall B.", "diagram", "archive"),
 } satisfies Record<string, Figure>;
 export type FigureId = keyof typeof FIGURES;
 

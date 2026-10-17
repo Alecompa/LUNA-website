@@ -8,11 +8,15 @@ export default function Zoomable({
   alt,
   caption,
   className,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   caption?: string;
   className?: string;
+  width?: number;
+  height?: number;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   return (
@@ -23,7 +27,7 @@ export default function Zoomable({
         onClick={() => ref.current?.showModal()}
         aria-label={`Enlarge: ${alt}`}
       >
-        <img src={src} alt={alt} loading="lazy" />
+        <img src={src} alt={alt} width={width} height={height} loading="lazy" />
       </button>
       <dialog
         ref={ref}
