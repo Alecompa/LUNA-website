@@ -20,7 +20,7 @@ export default function About() {
 
       <section className="section" style={{ paddingTop: 0 }} id="gamow">
         <div className="shell feature">
-          <Fig figure={FIGURES.gamow} />
+          <Fig figure={FIGURES.gamowCurves} />
           <div>
             <span className="label">01 · The Gamow window</span>
             <h3>Fusion by tunnelling</h3>

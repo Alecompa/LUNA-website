@@ -209,7 +209,8 @@ a.card:hover .card-media img { transform: scale(1.03); }
 .fig { margin: 0; }
 .fig-frame { position: relative; display: block; width: 100%; border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); cursor: zoom-in; }
 .fig-frame img { width: 100%; height: auto; }
-.fig-frame.plot img, .fig-frame.diagram img { padding: 16px; }
+/* Plots and diagrams never upscale beyond their native pixels. */
+.fig-frame.plot img, .fig-frame.diagram img { padding: 16px; width: auto; max-width: 100%; margin-inline: auto; }
 .fig-frame.cover { aspect-ratio: 4 / 3; }
 .fig-frame.cover img { height: 100%; object-fit: cover; padding: 0; }
 .fig figcaption { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 70ch; }
