@@ -28,6 +28,11 @@ export default function Collaboration() {
         <div className="inst-grid">
           {institutions.map((i) => (
             <div key={i.name} className="inst">
+              {i.logos.length > 0 && (
+                <div className="inst-logos">
+                  {i.logos.map((l) => <img key={l} src={asset(l)} alt="" loading="lazy" />)}
+                </div>
+              )}
               <span className="where">{i.city} · {i.country}</span>
               <h3>{i.name}</h3>
               <p>{i.members.join(", ")}</p>

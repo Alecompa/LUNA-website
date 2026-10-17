@@ -5,6 +5,25 @@ export type Institution = {
   city: string;
   country: string;
   members: string[];
+  logos?: string[];
+};
+
+// Institution logos in public/images/institutions, keyed by city.
+const LOGOS: Record<string, string[]> = {
+  "Assergi · L’Aquila": ["infn.svg", "gssi.svg"],
+  Bari: ["uniba.png"],
+  Budapest: ["hun-ren.png"],
+  Debrecen: ["hun-ren.png"],
+  Dresden: ["hzdr.png"],
+  Edinburgh: ["ed.png"],
+  Genova: ["unige.png"],
+  Legnaro: ["infn.svg"],
+  Milano: ["unimi.png"],
+  Napoli: ["unina.png"],
+  Padova: ["unipd.svg"],
+  Roma: ["infn.svg"],
+  Teramo: ["inaf.svg"],
+  Torino: ["unito.png"],
 };
 
 // The archive lists each institution as a bold paragraph followed by names.
@@ -42,4 +61,4 @@ export const institutions = parsed.list.map((i) =>
     : i.name.startsWith("Osservatorio Astronomico di Collurania")
       ? { ...i, name: "Osservatorio Astronomico di Collurania and INFN LNGS", city: "Teramo" }
       : i,
-);
+).map((i) => ({ ...i, logos: (LOGOS[i.city] || []).map((f) => `/images/institutions/${f}`) }));
